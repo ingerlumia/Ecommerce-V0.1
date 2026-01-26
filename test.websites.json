@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "68f7b0ef038d12570bcc7d61"
+  },
+  "websiteviews": {
+    "$numberInt": "132"
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+}]

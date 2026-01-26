@@ -1,0 +1,123 @@
+:root {
+  --navbar-height: 64px;
+  --footer-height: 80px; /* adjust to your footer */
+  --sidebar-collapsed: 64px;
+  --sidebar-expanded: 240px;
+}
+
+
+/* MAIN CONTENT AREA */
+.app-content {
+  margin-top: var(--navbar-height);
+  padding: 20px;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+/* WHEN SIDEBAR IS PRESENT */
+.with-sidebar .app-content {
+  margin-left: var(--sidebar-width);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*  Top selleing  */
+
+.category-scroll {
+  scrollbar-width: none; /* Firefox */
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.category-pill {
+  background: #f1f3ff;
+  color: #3f3d56;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.category-pill:hover {
+  background: #6c63ff;
+  color: #ffffff;
+}
+
+body {
+  background-color: #f9fafb;
+}
+
+.navbar a:hover {
+  color: #1e3a8a;
+}
+
+.page-link {
+  color: #1e3a8a;
+}
+
+.page-item.active .page-link {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #fff; /* Light background */
+  color: #FF7A00; /* Theme color for text */
+  border: 2px solid #FF7A00; /* Theme color border */
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #FF7A00; /* Theme color on hover */
+  color: #fff; /* White text for contrast */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3); /* Light orange glow */
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.2);
+}
+.btn-custom {
+  background-color: #FF7A00 !important;  /* Orange default */
+  color: #fff !important;               /* White text default */
+  border: 2px solid #FF7A00 !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: none !important;
+}
+
+.btn-custom:hover,
+.btn-custom:hover:not(:disabled) {
+  background-color: #fff !important;    /* White on hover */
+  color: #FF7A00 !important;            /* Orange text on hover */
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.3) !important;
+}
+
+.btn-custom:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 1px 4px rgba(255, 122, 0, 0.2) !important;
+}
+
+main {
+  padding-top: 90px;  /* Navbar height + buffer */
+}
+
+.auth-page main {
+  padding-top: 0;  /* Fullscreen login */
+}
+

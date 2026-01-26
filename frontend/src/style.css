@@ -1,0 +1,8 @@
+.navbar {
+  height: 64px;
+  z-index: 1050; /* higher than sidebar */
+}
+footer {
+  position: relative;
+  z-index: 1100;
+}

@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "67bc64e08b81031867c6ec80"
+  },
+  "name": "noder",
+  "email": "nodemailer582@gmail.com",
+  "password": "$2b$10$2Uto8lyR.Js6.5fvB2KBXuxd0iNMm8r6W.FzW1DynboAIgiYkXe1u",
+  "role": "admin",
+  "contact": "8489745470",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1740399840627"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1755827287480"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  },
+  "avatar": "http://localhost:2005/uploads/80406e5e-def9-4ae6-8421-831a08a4515e.jpg"
+},
+{
+  "_id": {
+    "$oid": "68c2f6700b035027a18e3beb"
+  },
+  "name": "parwin",
+  "email": "parwinparwin2500@gmail.com",
+  "password": "$2b$10$hADKiWb8IWWLwEwwTGKg/eZMRJtRhWnZ.fMZMw2ZaYEFIei1BoClW",
+  "avatar": "http://localhost:2005/uploads/7501c724-2c09-4f8e-9a79-7a61de96613d.png",
+  "role": "user",
+  "contact": "8870665311",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1757607536571"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1758640982633"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68c6c02672c9a277cb5ec900"
+  },
+  "name": "alex",
+  "email": "alexanderalexander6625@gmail.com",
+  "password": "$2b$10$S.vEOPq4howtK6KwvAsdBOdB0SIkn2wSrNBkKkZAPUMO3Xl3lbgPK",
+  "avatar": "http://localhost:2005/uploads/449d062c-094b-4dcb-a331-90df82be2fb5.jpg",
+  "role": "seller",
+  "contact": "4567856464",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1757855782038"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1763057715576"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68d1590c826fc42599600106"
+  },
+  "name": "abinesh",
+  "email": "samplemanagerr2005@gmail.com",
+  "password": "$2b$10$/BfZSKSXeRTm/RzLGb6YkO1QMEXHf/JPOIS7rbYNtWa2IAcqvVVtS",
+  "avatar": "http://localhost:2005/uploads/a0811022-68cc-4096-8043-6652af3095a6.png",
+  "role": "manager",
+  "contact": "8870564511",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1758550284460"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1763298986624"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fa1bf1780bb5bbe4a40014"
+  },
+  "name": "sampleseller",
+  "email": "sampleseller998@gmail.com",
+  "password": "$2b$10$1VzO5pDFQZCOqg7bM3oqIe.apsk1BexklP5Rwo6wI7YOR0TbfcUja",
+  "avatar": "http://localhost:2005/uploads/1cdf723c-1bdb-4713-b975-c2666107ba58.jpg",
+  "role": "seller",
+  "contact": "8870663511",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761221617128"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1763307574575"
+    }
+  },
+  "__v": {
+    "$numberInt": "0"
+  },
+  "manager": "samplemanagerr2005@gmail.com"
+}]

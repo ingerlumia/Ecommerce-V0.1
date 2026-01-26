@@ -1,0 +1,12 @@
+/* Push ALL content below fixed navbar */
+main,
+.home-page,
+.home-page > *:first-child {
+  padding-top: 90px !important;
+}
+
+/* Auth pages keep full height */
+.login-page,
+.register-page {
+  padding-top: 0 !important;
+}

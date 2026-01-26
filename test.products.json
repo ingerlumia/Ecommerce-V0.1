@@ -1,0 +1,1896 @@
+[{
+  "_id": {
+    "$oid": "68fe0af317eec0f0d2aa3974"
+  },
+  "name": "AeroCam X1 Digital Camera",
+  "price": {
+    "$numberInt": "64999"
+  },
+  "description": "Capture professional-quality photos and videos with the AeroCam X1, featuring 24.2MP resolution, optical zoom, and advanced autofocus.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/beea47bf-5cb0-4330-bf90-ca1fe75f18e5.jpg",
+      "_id": {
+        "$oid": "6912182cd6b80eee7d9bf174"
+      }
+    }
+  ],
+  "category": "Cameras",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "30"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "4"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0b5217eec0f0d2aa39da"
+  },
+  "name": "ZenStep Men’s Running Shoes",
+  "price": {
+    "$numberInt": "2899"
+  },
+  "description": "Lightweight and breathable, ZenStep running shoes offer superior grip and comfort for daily training or casual wear.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/97111dba-e8e5-4bed-a0ef-3363bff0c786.jpg",
+      "_id": {
+        "$oid": "69121ab5d6b80eee7d9bf201"
+      }
+    }
+  ],
+  "category": "Clothes/Shoes",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "60"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "3"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0bd117eec0f0d2aa3a2c"
+  },
+  "name": "RetroCam 80 Classic Film Camera",
+  "price": {
+    "$numberInt": "7997"
+  },
+  "description": "Bring vintage photography to life with the RetroCam 80, a perfectly restored film camera with manual focus and premium lens quality.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/8e79a4c8-0e47-43bd-801c-f3fcd3a8ea38.jpg",
+      "_id": {
+        "$oid": "69121b06d6b80eee7d9bf2b6"
+      }
+    }
+  ],
+  "category": "Cameras",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "20"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "3"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0c3517eec0f0d2aa3a9a"
+  },
+  "name": "BoostUp Energy Drink 500ml",
+  "price": {
+    "$numberInt": "299"
+  },
+  "description": "Refresh and energize instantly with BoostUp, a performance-boosting energy drink packed with vitamins and natural caffeine.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/600abbfd-e936-4af0-b179-79817462ccd8.jpg",
+      "_id": {
+        "$oid": "69121b14d6b80eee7d9bf2eb"
+      }
+    }
+  ],
+  "category": "Food",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "200"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0c6c17eec0f0d2aa3aee"
+  },
+  "name": "Essenza Noir Luxury Perfume",
+  "price": {
+    "$numberInt": "2499"
+  },
+  "description": "Essenza Noir blends amber, cedar, and sandalwood for a bold, long-lasting fragrance that defines modern sophistication.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/8d986e4c-77bc-4134-a26b-be8828288bb8.jpg",
+      "_id": {
+        "$oid": "69121b23d6b80eee7d9bf320"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "120"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "3"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0ca417eec0f0d2aa3b42"
+  },
+  "name": "TechWave Ultra Laptop 15",
+  "price": {
+    "$numberInt": "69999"
+  },
+  "description": "Powered by the latest Intel i7 processor, the TechWave Ultra offers unmatched performance for work, design, and gaming.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/460f3e2e-0b55-40a4-a9fb-97b4d349038f.jpg",
+      "_id": {
+        "$oid": "69121b30d6b80eee7d9bf355"
+      }
+    }
+  ],
+  "category": "Laptops",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "70"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "3"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0cdd17eec0f0d2aa3b96"
+  },
+  "name": "LeafyCharm Mini Table Plant",
+  "price": {
+    "$numberInt": "499"
+  },
+  "description": "Brighten your workspace with the LeafyCharm artificial table plant — realistic design, zero maintenance, maximum charm.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/4c526fba-f34c-471d-85ec-8d8c2ba46c99.jpg",
+      "_id": {
+        "$oid": "69121b48d6b80eee7d9bf3bf"
+      }
+    }
+  ],
+  "category": "Home",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "400"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "4"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0d1f17eec0f0d2aa3bea"
+  },
+  "name": "SkyView Pro Drone X4",
+  "price": {
+    "$numberInt": "42999"
+  },
+  "description": "Capture stunning aerial shots with the SkyView Pro Drone featuring 4K camera, GPS stability, and 25-minute flight time.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/9a64cec5-287b-4b9e-97aa-aaa4f094cc4b.jpg",
+      "_id": {
+        "$oid": "69121b5bd6b80eee7d9bf3f4"
+      }
+    }
+  ],
+  "category": "Electronics",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "75"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0d5a17eec0f0d2aa3c3e"
+  },
+  "name": "ShadePro Black Aviator Sunglasses",
+  "price": {
+    "$numberInt": "1899"
+  },
+  "description": "Classic black aviators with UV400 protection and lightweight alloy frames for timeless style and durability",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/dd9996db-9612-43f0-bc4b-8310128f06ee.jpg",
+      "_id": {
+        "$oid": "69121b76d6b80eee7d9bf429"
+      }
+    }
+  ],
+  "category": "Accessories",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "130"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68fe0db717eec0f0d2aa3c84"
+  },
+  "name": "TrailEdge Men’s Sneakers",
+  "price": {
+    "$numberInt": "3199"
+  },
+  "description": "Stylish and durable sneakers for men with cushioned soles and breathable mesh design for all-day comfort.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/a479b3bd-f8fc-4bd8-8b9b-1a46cf620a02.jpg",
+      "_id": {
+        "$oid": "69121b87d6b80eee7d9bf45e"
+      }
+    }
+  ],
+  "category": "Clothes/Shoes",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "170"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761479206825"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ff9f1b11a11f808c8cd062"
+  },
+  "name": "MechaType RGB Mechanical Keyboard",
+  "price": {
+    "$numberInt": "4999"
+  },
+  "description": "Experience precision and performance with the MechaType RGB keyboard featuring customizable lighting and tactile switches.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/d0fe5efa-3135-49a5-b799-d67376e5aa2b.jpg",
+      "_id": {
+        "$oid": "69121b96d6b80eee7d9bf493"
+      }
+    }
+  ],
+  "category": "Electronics",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "240"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761582275912"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ffa75b8cd3ca0bd479f5b0"
+  },
+  "name": "ScarletSteps Women’s Red Footwear",
+  "price": {
+    "$numberInt": "2599"
+  },
+  "description": "Elegant red heels designed for comfort and fashion, ideal for evening wear or formal events.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/78fbab50-9c3a-4848-9cc1-5da372f0d5be.jpg",
+      "_id": {
+        "$oid": "69121ba5d6b80eee7d9bf4c8"
+      }
+    }
+  ],
+  "category": "Clothes/Shoes",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "600"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761584529912"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ffa7a88cd3ca0bd479f5d0"
+  },
+  "name": "AquaPure Green Stainless Bottle",
+  "price": {
+    "$numberInt": "699"
+  },
+  "description": "Stay hydrated with the durable AquaPure stainless steel bottle featuring insulation and eco-friendly design.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/68a280c3-085a-4939-a7f3-0857a9a0ce2a.jpg",
+      "_id": {
+        "$oid": "69121bb4d6b80eee7d9bf4fd"
+      }
+    }
+  ],
+  "category": "Home",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "300"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761584529912"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ffac23f52fbf237b29d990"
+  },
+  "name": "AirBeats True Wireless Earbuds",
+  "price": {
+    "$numberInt": "4499"
+  },
+  "description": "Compact and stylish, AirBeats deliver rich bass, seamless Bluetooth 5.3 connectivity, and 24-hour playtime.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/19dc53b7-6e89-453a-9033-ee390e3706e5.jpg",
+      "_id": {
+        "$oid": "69121bc3d6b80eee7d9bf532"
+      }
+    }
+  ],
+  "category": "Headphones",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "350"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "8"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761586145205"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6905a52d219d5d61fa833577"
+  },
+  "name": "SoundPods Pro Sand Edition",
+  "price": {
+    "$numberInt": "5299"
+  },
+  "description": "Enjoy premium sound with SoundPods Pro featuring touch control, noise cancellation, and a stylish sand-colored case.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/e18ad7ff-8bdd-407b-848a-b6b60bb25bfb.jpg",
+      "_id": {
+        "$oid": "69121bd3d6b80eee7d9bf567"
+      }
+    }
+  ],
+  "category": "Headphones",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "130"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761977144963"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6905aa80dad17ec1ae4322e6"
+  },
+  "name": "SilkShine Hair Serum",
+  "price": {
+    "$numberInt": "799"
+  },
+  "description": "Nourish your hair with SilkShine serum infused with argan oil and keratin for instant smoothness and shine.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/f70ad96e-0fce-47a2-b9fc-265c1d9ea223.jpg",
+      "_id": {
+        "$oid": "69121be2d6b80eee7d9bf59c"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "200"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "2"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1761978998227"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "69064328b964d162ea22560a"
+  },
+  "name": "PulseMax Game Controller",
+  "price": {
+    "$numberInt": "2999"
+  },
+  "description": "Wireless game controller with dual vibration feedback, ergonomic grip, and multi-platform support.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/2c66ebb6-4a82-483c-92a3-193a8a03aec0.jpg",
+      "_id": {
+        "$oid": "69121bf4d6b80eee7d9bf5d1"
+      }
+    }
+  ],
+  "category": "Accessories",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "100"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "6"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1762016766926"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "69161e3e5f03da5f3b6b07c2"
+  },
+  "name": "RoadFlex X7 Gear Bicycle",
+  "price": {
+    "$numberInt": "18999"
+  },
+  "description": "High-performance 21-speed gear cycle built for urban commuting and mountain adventures with alloy frame and disc brakes.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/88c69bc3-c051-44ba-9b9e-8705e1e3f193.jpg",
+      "_id": {
+        "$oid": "69161e3e5f03da5f3b6b07c3"
+      }
+    }
+  ],
+  "category": "Outdoor",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "200"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "69161e8f5f03da5f3b6b07ee"
+  },
+  "name": "GlamHeels Women’s Sandals",
+  "price": {
+    "$numberInt": "2399"
+  },
+  "description": "Elegant heels with soft leather finish and cushioned support for both comfort and confidence.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/9d19955d-3b03-487e-91e0-dbdd9c00d075.jpg",
+      "_id": {
+        "$oid": "69161e8f5f03da5f3b6b07ef"
+      }
+    }
+  ],
+  "category": "Clothes/Shoes",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "140"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "69161ece5f03da5f3b6b081c"
+  },
+  "name": "BioGlow Complete Makeup Kit",
+  "price": {
+    "$numberInt": "3499"
+  },
+  "description": "A full makeup collection with foundation, eyeshadow, blush, and lip palette for all occasions.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/8c670183-bea2-4ace-9a93-7c509450911c.jpg",
+      "_id": {
+        "$oid": "69161ece5f03da5f3b6b081d"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "80"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "69161f3f5f03da5f3b6b084c"
+  },
+  "name": "PureGlow Face Wash",
+  "price": {
+    "$numberInt": "499"
+  },
+  "description": "Deep-cleansing face wash enriched with aloe and green tea extract to remove dirt and hydrate skin.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/fbb29e50-390c-4b83-9e5a-175b95a3f8cb.jpg",
+      "_id": {
+        "$oid": "69161f3f5f03da5f3b6b084d"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "300"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "69161fee5f03da5f3b6b0884"
+  },
+  "name": "ClickPro Wireless Mouse",
+  "price": {
+    "$numberInt": "1199"
+  },
+  "description": "Ergonomic wireless mouse with fast tracking, silent clicks, and long battery life for smooth workflow.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/542af04e-bea4-4ef1-8b55-c86fd078aee4.jpg",
+      "_id": {
+        "$oid": "69161fee5f03da5f3b6b0885"
+      }
+    }
+  ],
+  "category": "Accessories",
+  "seller": {
+    "id": {
+      "$oid": "68fa1bf1780bb5bbe4a40014"
+    },
+    "name": "sampleseller"
+  },
+  "stock": {
+    "$numberInt": "50"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691620d05f03da5f3b6b09c9"
+  },
+  "name": "GlowBlend Makeup Brush Set",
+  "price": {
+    "$numberInt": "1499"
+  },
+  "description": "A premium 12-piece makeup brush set with soft bristles and elegant design for flawless blending and coverage.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/62bd7ef4-30c0-4b9e-b3ac-0568f78a2564.jpg",
+      "_id": {
+        "$oid": "691620d05f03da5f3b6b09ca"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "100"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691621085f03da5f3b6b09ff"
+  },
+  "name": "ChronoEdge Men’s Brown Watch",
+  "price": {
+    "$numberInt": "4999"
+  },
+  "description": "Elegant brown leather-strap wristwatch with stainless steel case and quartz precision movement.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/f10c997c-b016-487e-970a-b315de167198.jpg",
+      "_id": {
+        "$oid": "691621085f03da5f3b6b0a00"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "900"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691621605f03da5f3b6b0a37"
+  },
+  "name": "SilverWave Men’s Chronograph",
+  "price": {
+    "$numberInt": "6199"
+  },
+  "description": "Modern white-faced chronograph watch designed for men with waterproof build and date display.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/110374b8-454f-47f1-b900-9b9ea3aa97a7.jpg",
+      "_id": {
+        "$oid": "691621605f03da5f3b6b0a38"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "420"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691621a45f03da5f3b6b0a71"
+  },
+  "name": "ToneWood Acoustic Guitar",
+  "price": {
+    "$numberInt": "8999"
+  },
+  "description": "Beautifully crafted acoustic guitar with a rich brown finish, perfect for beginners and professionals alike.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/df50fcb4-e6e9-4c0c-84d6-e4ab4f275121.jpg",
+      "_id": {
+        "$oid": "691621a45f03da5f3b6b0a72"
+      }
+    }
+  ],
+  "category": "Accessories",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "280"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691622605f03da5f3b6b0aad"
+  },
+  "name": "CoreBox Pro PC Setup",
+  "price": {
+    "$numberInt": "82999"
+  },
+  "description": "High-performance desktop PC setup featuring Ryzen 7, RTX GPU, and 1TB SSD for gamers and creators.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/9895f728-db1d-43da-b185-d7fdaf742796.jpg",
+      "_id": {
+        "$oid": "691622605f03da5f3b6b0aae"
+      }
+    }
+  ],
+  "category": "Electronics",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "80"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6916229e5f03da5f3b6b0aeb"
+  },
+  "name": "SharpEdge Multi-Purpose Knife",
+  "price": {
+    "$numberInt": "799"
+  },
+  "description": "Durable stainless steel knife with non-slip handle, perfect for kitchen and outdoor use.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/2256be22-3111-4048-9380-48806036c897.jpg",
+      "_id": {
+        "$oid": "6916229e5f03da5f3b6b0aec"
+      }
+    }
+  ],
+  "category": "Home",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "110"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "1"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691622eb5f03da5f3b6b0b2b"
+  },
+  "name": "AeroMount Camera Kit with Tripod",
+  "price": {
+    "$numberInt": "13999"
+  },
+  "description": "Capture steady, high-quality footage with AeroMount camera and adjustable aluminum tripod combo.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/c9b5d18d-a1e4-4e8f-9e65-0bdcf53eade4.jpg",
+      "_id": {
+        "$oid": "691622eb5f03da5f3b6b0b2c"
+      }
+    }
+  ],
+  "category": "Accessories",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "40"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691623475f03da5f3b6b0b6d"
+  },
+  "name": "GoldCraft Premium Beer Bottle",
+  "price": {
+    "$numberInt": "249"
+  },
+  "description": "Smooth and crisp golden beer with a refreshing taste crafted using the finest hops and malt.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/1187f1b8-cc30-44ce-9085-0a60603890aa.jpg",
+      "_id": {
+        "$oid": "691623475f03da5f3b6b0b6e"
+      }
+    }
+  ],
+  "category": "Food",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "130"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6916238d5f03da5f3b6b0bb1"
+  },
+  "name": "SonicBoom Portable Speaker",
+  "price": {
+    "$numberInt": "3299"
+  },
+  "description": "Compact Bluetooth speaker with deep bass, 10-hour battery, and waterproof body for outdoor adventures.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/04b4ce96-c8ea-4020-850c-f14fefeba169.jpg",
+      "_id": {
+        "$oid": "6916238d5f03da5f3b6b0bb2"
+      }
+    }
+  ],
+  "category": "Headphones",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "200"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691623cb5f03da5f3b6b0bf7"
+  },
+  "name": "CarryAll Laptop & Book Backpack",
+  "price": {
+    "$numberInt": "2199"
+  },
+  "description": "Spacious and water-resistant backpack with cushioned laptop sleeve and multiple compartments.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/5da91663-22cb-4a57-83e3-942ecd36d639.jpg",
+      "_id": {
+        "$oid": "691623cb5f03da5f3b6b0bf8"
+      }
+    }
+  ],
+  "category": "Accessories",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "250"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "691624375f03da5f3b6b0cb5"
+  },
+  "name": "iPhone 14 Pro Max",
+  "price": {
+    "$numberInt": "134999"
+  },
+  "description": "The iPhone 14 Pro Max with A16 Bionic chip, 48MP main camera, and Dynamic Island display experience.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/54a09bc8-5d66-4cb1-b41e-3b4b3635b591.jpg",
+      "_id": {
+        "$oid": "691624375f03da5f3b6b0cb6"
+      }
+    }
+  ],
+  "category": "Mobile Phones",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "450"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6916246b5f03da5f3b6b0d01"
+  },
+  "name": "AromaWave Floral Perfume",
+  "price": {
+    "$numberInt": "2299"
+  },
+  "description": "Light, floral fragrance for daily wear with notes of jasmine, musk, and rose petals.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/5ec94dda-b043-40dd-abd1-5932a74fdd6a.jpg",
+      "_id": {
+        "$oid": "6916246b5f03da5f3b6b0d02"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "500"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763056561156"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918b56b5e89ab16d3f9aafe"
+  },
+  "name": "UrbanTote Women’s Brown Handbag",
+  "price": {
+    "$numberInt": "3199"
+  },
+  "description": "Stylish leather handbag with gold-tone hardware and spacious interior for all essentials.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/271ef170-9197-4611-b84b-46cc7b8bcc9b.jpg",
+      "_id": {
+        "$oid": "6918b56b5e89ab16d3f9aaff"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "50"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918b5ca5e89ab16d3f9ab4c"
+  },
+  "name": "StrideFlex Men’s Sports Shoes",
+  "price": {
+    "$numberInt": "2799"
+  },
+  "description": "Durable running shoes with breathable mesh design and non-slip rubber sole for daily performance.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/fd044b38-9b28-49aa-ab8c-19dd7fe9f889.jpg",
+      "_id": {
+        "$oid": "6918b5ca5e89ab16d3f9ab4d"
+      }
+    }
+  ],
+  "category": "Clothes/Shoes",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "100"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918b6845e89ab16d3f9ab9c"
+  },
+  "name": "GlamFusion Complete Makeup Set",
+  "price": {
+    "$numberInt": "3999"
+  },
+  "description": "Comprehensive makeup set featuring brushes, lip colors, foundation, and mirror case for all-in-one beauty care.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/d5d1bd5e-61c7-4433-97ad-0a958bccf5a3.jpg",
+      "_id": {
+        "$oid": "6918b6845e89ab16d3f9ab9d"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "200"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918b76b5e89ab16d3f9abee"
+  },
+  "name": "OptiView Pro Camera Lens",
+  "price": {
+    "$numberInt": "22999"
+  },
+  "description": "High-precision 70–200mm camera lens for DSLR systems with image stabilization and wide aperture.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/c6c88251-705c-42c5-acd9-ba5396e04d47.jpg",
+      "_id": {
+        "$oid": "6918b76b5e89ab16d3f9abef"
+      }
+    }
+  ],
+  "category": "Cameras",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "150"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918ba095e89ab16d3f9ad64"
+  },
+  "name": "BassBlaze Studio Headphones",
+  "price": {
+    "$numberInt": "4599"
+  },
+  "description": "Over-ear studio headphones with high-fidelity sound, noise isolation, and soft comfort padding.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/9e3aabd8-5540-4271-bfc1-d412efe25118.jpg",
+      "_id": {
+        "$oid": "6918ba095e89ab16d3f9ad65"
+      }
+    },
+    {
+      "image": "/uploads/6addf680-eff4-41dc-8f1d-91428f9d40cf.jpg",
+      "_id": {
+        "$oid": "6918ba095e89ab16d3f9ad66"
+      }
+    }
+  ],
+  "category": "Headphones",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "280"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918ba6d5e89ab16d3f9adbd"
+  },
+  "name": "SunRay Classic Sunglasses",
+  "price": {
+    "$numberInt": "1699"
+  },
+  "description": "Stylish UV-protected sunglasses offering timeless elegance and premium comfort.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/648ee896-a570-468b-9e51-b618e4337f42.jpg",
+      "_id": {
+        "$oid": "6918ba6d5e89ab16d3f9adbe"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "400"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6918baa85e89ab16d3f9ae17"
+  },
+  "name": "VitalBoost Energy Shot 100ml",
+  "price": {
+    "$numberInt": "99"
+  },
+  "description": "Instant energy shot packed with natural caffeine and vitamins to keep you active and alert all day.",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/bf906a51-eeed-4519-ac53-6cf161307287.jpg",
+      "_id": {
+        "$oid": "6918baa85e89ab16d3f9ae18"
+      }
+    }
+  ],
+  "category": "Beauty/Health",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "600"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763226778389"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+},
+{
+  "_id": {
+    "$oid": "6919cdbe747c1820790ebed8"
+  },
+  "name": "ssss",
+  "price": {
+    "$numberInt": "333"
+  },
+  "description": "assas",
+  "ratings": "0",
+  "images": [
+    {
+      "image": "/uploads/42b979ba-1aa3-4549-b831-6db36f8310f1.jpg",
+      "_id": {
+        "$oid": "6919cdbe747c1820790ebed9"
+      }
+    }
+  ],
+  "category": "Sports",
+  "seller": {
+    "id": {
+      "$oid": "68c6c02672c9a277cb5ec900"
+    },
+    "name": "alex"
+  },
+  "stock": {
+    "$numberInt": "34"
+  },
+  "numOfReviews": {
+    "$numberInt": "0"
+  },
+  "status": "pending",
+  "views": {
+    "$numberInt": "0"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1763298522409"
+    }
+  },
+  "reviews": [],
+  "__v": {
+    "$numberInt": "0"
+  }
+}]

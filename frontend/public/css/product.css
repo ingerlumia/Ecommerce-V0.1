@@ -1,0 +1,8 @@
+.top-selling-card {
+  border-radius: 10px;
+  transition: transform 0.18s ease;
+}
+
+.top-selling-card:hover {
+  transform: translateY(-4px);
+}

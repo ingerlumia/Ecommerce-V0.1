@@ -1,0 +1,45 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "412590ad-72b7-4725-9bd5-55569b4eabe9",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1763574721425"
+        }
+      },
+      "favorite": {
+        "name": "atlas"
+      },
+      "savedConnectionType": "favorite",
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://parwinparwin2500:Cypers$2005@cypers.gtukepl.mongodb.net/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    },
+    {
+      "id": "ef4a4120-5588-4d1f-b65b-3a56bcd94b9b",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1763573798164"
+        }
+      },
+      "favorite": {
+        "name": "cypers",
+        "color": "color1"
+      },
+      "savedConnectionType": "favorite",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}
