@@ -17,8 +17,9 @@ app.set('trust proxy',true);
 app.use('./uploads',express.static('uploads'));
 app.use(express.json());
 app.use(cookieparser());
+
 app.use(cors({
-  origin: "*",
+  origin: process.env.Frontend_URL, 
   credentials: true
 }));
 
@@ -57,6 +58,7 @@ app.listen(port,() =>{
     console.log(`Server Running on http://localhost:${port}`);
     connectdb();
 })
+
 
 
 
