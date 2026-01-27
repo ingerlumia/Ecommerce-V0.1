@@ -16,7 +16,7 @@ export const registerUser = async (req, res) => {
   try {
     const { name, email, password, contact, addresses } = req.body;
     let avatar;
-    let base_URL = process.env.BACKEND_URL;
+    let base_URL = process.env.REACT_APP_BACKEND_URL;
     if (process.env.NODE_ENV === "production") {
       base_URL = `${req.protocol}://${req.get("host")}`;
     }
@@ -338,7 +338,7 @@ export const updateProfile = async (req, res) => {
 
     let avatar;
 
-    let base_URL = process.env.BACKEND_URL;
+    let base_URL = process.env.REACT_APP_BACKEND_URL;
     if (process.env.NODE_ENV === "production") {
       base_URL = `${req.protocol}://${req.get("host")}`;
     }
@@ -463,4 +463,5 @@ export const getSpecificUser = async (req, res) => {
     user,
   });
 };
+
 
