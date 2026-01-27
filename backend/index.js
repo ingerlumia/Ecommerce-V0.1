@@ -18,14 +18,26 @@ app.use('./uploads',express.static('uploads'));
 app.use(express.json());
 app.use(cookieparser());
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://ecommercev01-parvins-projects-aef319f0.vercel.app",
+  "https://ecommercev01-git-main-parvins-projects-aef319f0.vercel.app"
+];
+
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://ecommercev01-d6gcvkjk3-parvins-projects-aef319f0.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const isVercelPreview = /\.vercel\.app$/.test(origin) && origin.includes("parvins-projects");
+
+    if (allowedOrigins.indexOf(origin) !== -1 || isVercelPreview) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
-    origin: 'https://ecommercev01-parvins-projects-aef319f0.vercel.app'
-    credentials: true
 }));
 
 
@@ -63,6 +75,7 @@ app.listen(port,() =>{
     console.log(`Server Running on http://localhost:${port}`);
     connectdb();
 })
+
 
 
 
