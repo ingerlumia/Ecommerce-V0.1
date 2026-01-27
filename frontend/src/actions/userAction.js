@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from './api'
 import { clearError, loadUserFail, loadUserRequest, loadUserSuccess, 
     loginFail, loginRequest, loginSuccess, 
     otpFail, otpRequest, otpSuccess, registerFail,
@@ -14,13 +14,11 @@ import { userDeleteFail, userDeleteRequest, userDeleteSuccess,
      userUpdateFail, userUpdateRequest, userUpdateSuccess,  
      usersListFail, usersListRequest, usersListSuccess } from "../slices/userSlice";
     
-//const api = axios.create({ baseURL: "http://localhost:3000" });
-// Use the variable from Vercel, or fall back to localhost for testing
+//const api = api.create({ baseURL: "http://localhost:3000" });
 
-axios.defaults.withCredentials = true;
 export const login = (email, password) => async (dispatch) => {
     try {
-        const { data } = await axios.post(`/api/user/login`, { email, password });
+        const { data } = await api.post('/api/user/login', { email, password });
         dispatch(loginRequest());
         dispatch(loginSuccess(data));
     } catch (error) {
@@ -30,14 +28,14 @@ export const login = (email, password) => async (dispatch) => {
 
 export const register = (userData) => async(dispatch) =>{
     try {
-        dispatch(registerRequest);
+        dispatch(registerRequest());
 
         const config = {
             headers:{
                 'Content-type': 'multipart/form-data'
             }
         };
-        const { data } = await axios.post(`api/user/register`,userData,config);
+        const { data } = await api.post(`api/user/register`,userData,config);
         dispatch(registerSuccess(data));
 
     } catch (error) {
@@ -47,8 +45,8 @@ export const register = (userData) => async(dispatch) =>{
 
 export const otpVerify = (otp) => async(dispatch) =>{
     try {
-        dispatch(otpRequest);
-        const { data } = await axios.post(`api/user/verify`,{otp},{
+        dispatch(otpRequest());
+        const { data } = await api.post(`api/user/verify`,{otp},{
             withCredentials:true
         });
         
@@ -61,12 +59,12 @@ export const otpVerify = (otp) => async(dispatch) =>{
 
 export const loadUser = async(dispatch) =>{
     try {
-        dispatch(loadUserRequest);
+        dispatch(loadUserRequest());
 
         // Always call with absolute API path:
-        const { data } = await axios.get("/api/user/profile");
+        const { data } = await api.get("/api/user/profile");
 
-       // const { data } = await axios.get(`api/user/profile`);
+       // const { data } = await api.get(`api/user/profile`);
         dispatch(loadUserSuccess(data));
     } catch (error) {
         dispatch(loadUserFail(error.response.data.message));
@@ -75,7 +73,7 @@ export const loadUser = async(dispatch) =>{
 
 export const updateProfile = (userData) => async(dispatch) =>{
     try {
-        dispatch(updateProfileRequest);
+        dispatch(updateProfileRequest());
 
         const config = {
             headers:{
@@ -83,7 +81,7 @@ export const updateProfile = (userData) => async(dispatch) =>{
             }
         };
 
-        const { data } = await axios.put(`api/user/updateprofile`,userData,config);
+        const { data } = await api.put(`api/user/updateprofile`,userData,config);
         dispatch(updateProfileSuccess(data));
 
     } catch (error) {
@@ -99,7 +97,7 @@ export const changePassword = (formData) => async(dispatch) =>{
                 'Content-type':'application/json'
             }
         }
-        await axios.put(`api/user/changepassword`,formData,config);
+        await api.put(`api/user/changepassword`,formData,config);
         dispatch(changePasswordSuccess());
 
     } catch (error) {
@@ -115,7 +113,7 @@ export const forgotPassword = (formData) => async(dispatch) =>{
                 'Content-type':'application/json'
             }
         }
-        const { data } = await axios.post(`api/user/forgotPassword`,formData,config);
+        const { data } = await api.post(`api/user/forgotPassword`,formData,config);
         dispatch(forgotPasswordSuccess(data));
 
     } catch (error) {
@@ -131,7 +129,7 @@ export const resetPassword = (formData, token) => async(dispatch) =>{
                 'Content-type':'application/json'
             }
         }
-        const { data } = await axios.post(`http://127.0.0.1:2005/api/user/resetpassword/${token}`,formData,config);
+        const { data } = await api.post(`/api/user/resetpassword/${token}`,formData,config);
         dispatch(resetPasswordSuccess(data));
 
     } catch (error) {
@@ -142,7 +140,7 @@ export const resetPassword = (formData, token) => async(dispatch) =>{
 export const logoutUser = async(dispatch) =>{
     try {
 
-        const { data } = await axios.get(`api/user/logoutUser`);
+        const { data } = await api.get(`api/user/logoutUser`);
         dispatch(logoutSuccess());
     } catch (error) {
         dispatch(logoutFail(error.response.data.message));
@@ -156,7 +154,7 @@ export const clearAuthError = dispatch => {
 export const getUsers = ()=>async(dispatch) =>{
     try {
         dispatch(usersListRequest());
-        const { data } = await axios.get("/api/users/get/AllUsers");
+        const { data } = await api.get("/api/users/get/AllUsers");
         dispatch(usersListSuccess(data));
     } catch (error) {
         dispatch(usersListFail(error.response.data.message));
@@ -166,7 +164,7 @@ export const getUsers = ()=>async(dispatch) =>{
 export const getUser = (id) => async(dispatch) =>{
     try {
         dispatch(userRequest());
-        const { data } = await axios.get(`/api/users/get/user/${id}`);
+        const { data } = await api.get(`/api/users/get/user/${id}`);
         dispatch(userSuccess(data));
     } catch (error) {
         dispatch(userFail(error.response.data.message));
@@ -176,7 +174,7 @@ export const getUser = (id) => async(dispatch) =>{
 export const userDelete = (id) => async(dispatch) =>{
     try {
         dispatch(userDeleteRequest());
-        await axios.delete(`/api/users/delete/user/${id}`);
+        await api.delete(`/api/users/delete/user/${id}`);
         dispatch(userDeleteSuccess());
     } catch (error) {
         dispatch(userDeleteFail(error.response.data.message));
@@ -191,12 +189,9 @@ export const userUpdate = (id,formData) => async(dispatch) =>{
                 'Content-type': 'application/json'
             }
         };
-        const { data } = await axios.put(`/api/users/update/user/${id}`,formData,config);
+        const { data } = await api.put(`/api/users/update/user/${id}`,formData,config);
         dispatch(userUpdateSuccess(data));
     } catch (error) {
         dispatch(userUpdateFail(error.response.data.message));
     }
 }
-
-
-
