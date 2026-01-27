@@ -29,6 +29,8 @@ export const registerUser = async (req, res) => {
         Date.now() + process.env.COOKIE_EXP_TIME * 24 * 60 * 60 * 1000,
       ),
       httpOnly: true,
+      secure: true,
+      sameSite: "none",
     };
 
     //Is User already in DataBase ???
@@ -461,3 +463,4 @@ export const getSpecificUser = async (req, res) => {
     user,
   });
 };
+
