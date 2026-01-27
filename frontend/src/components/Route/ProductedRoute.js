@@ -26,5 +26,6 @@ export default function ProductedRoute({children, isAdmin, isSeller,isManager}){
 
 
 
-    return <Loader/>;
+    return children;
 }
+
