@@ -19,7 +19,10 @@ app.use(express.json());
 app.use(cookieparser());
 
 app.use(cors({
-  origin: process.env.Frontend_URL, 
+  origin: [
+    "http://localhost:3000",
+    "https://ecommercev01-d6gcvkjk3-parvins-projects-aef319f0.vercel.app"
+  ],
   credentials: true
 }));
 
@@ -58,6 +61,7 @@ app.listen(port,() =>{
     console.log(`Server Running on http://localhost:${port}`);
     connectdb();
 })
+
 
 
 
