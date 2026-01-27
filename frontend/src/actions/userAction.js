@@ -17,7 +17,7 @@ import { userDeleteFail, userDeleteRequest, userDeleteSuccess,
 //const api = axios.create({ baseURL: "http://localhost:3000" });
 // Use the variable from Vercel, or fall back to localhost for testing
 
-
+axios.defaults.withCredentials = true;
 export const login = (email, password) => async (dispatch) => {
     try {
         const { data } = await axios.post(`/api/user/login`, { email, password });
@@ -197,5 +197,6 @@ export const userUpdate = (id,formData) => async(dispatch) =>{
         dispatch(userUpdateFail(error.response.data.message));
     }
 }
+
 
 
