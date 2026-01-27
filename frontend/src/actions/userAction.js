@@ -16,12 +16,11 @@ import { userDeleteFail, userDeleteRequest, userDeleteSuccess,
     
 //const api = axios.create({ baseURL: "http://localhost:3000" });
 // Use the variable from Vercel, or fall back to localhost for testing
-const API_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:2005';
 
 
 export const login = (email, password) => async (dispatch) => {
     try {
-        const { data } = await axios.post(`${API_URL}/api/user/login`, { email, password });
+        const { data } = await axios.post(`/api/user/login`, { email, password });
         dispatch(loginRequest());
         dispatch(loginSuccess(data));
     } catch (error) {
@@ -198,4 +197,5 @@ export const userUpdate = (id,formData) => async(dispatch) =>{
         dispatch(userUpdateFail(error.response.data.message));
     }
 }
+
 
