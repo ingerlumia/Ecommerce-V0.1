@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { createSaleEventFail,createSaleEventSuccess, createSaleEventRequest,
     getSaleEventFail, getSaleEventRequest, getSaleEventSuccess,
     updateSaleEventRequest, updateSaleEventSuccess, updateSaleEventFail,
@@ -7,11 +7,12 @@ import { createSaleEventFail,createSaleEventSuccess, createSaleEventRequest,
     toggleSaleEventRequest, toggleSaleEventSuccess, toggleSaleEventFail,
     SaleEventDeleteSuccess,SaleEventDeleteFail, SaleEventDeleteRequest
 } from "../slices/saleEventSlice";
+import api from "./api";
 
 export const createSaleEvent = formData => async (dispatch) => {
     try {
         dispatch(createSaleEventRequest());
-        const {data} = await axios.post('/api/salesEvent/new/',formData,{
+        const {data} = await api.post('/api/salesEvent/new/',formData,{
   headers: { "Content-Type": "application/json" }
 });
         dispatch(createSaleEventSuccess(data));
@@ -24,7 +25,7 @@ export const createSaleEvent = formData => async (dispatch) => {
 export const getSalesEvent = () => async (dispatch) => {
     try {
         dispatch(getSaleEventRequest());
-        const { data } = await axios.get(`/api/salesEvent/get/`);
+        const { data } = await api.get(`/api/salesEvent/get/`);
         dispatch(getSaleEventSuccess(data));
     } catch (error) {
         dispatch(getSaleEventFail(error.response.data.message));
@@ -34,7 +35,7 @@ export const getSalesEvent = () => async (dispatch) => {
 export const sendSaleEventRequest = (idData) => async (dispatch) => {
     try {
         dispatch(saleEventRequest());
-        const { data } = await axios.post(`/api/salesEvent/request/`,idData);
+        const { data } = await api.post(`/api/salesEvent/request/`,idData);
         dispatch(saleEventSuccess(data));
     } catch (error) {
         dispatch(saleEventFail(error.response.data.message));
@@ -44,7 +45,7 @@ export const sendSaleEventRequest = (idData) => async (dispatch) => {
 export const responceSaleEvent = (payload) => async (dispatch) => {
     try {
         dispatch(toResponceSaleEventRequest());
-        const { data } = await axios.post(`/api/salesEvent/response/`,payload);
+        const { data } = await api.post(`/api/salesEvent/response/`,payload);
         dispatch(toResponceSaleEventSuccess(data));
     } catch (error) {
         dispatch(toResponceSaleEventFail(error.response.data.message));
@@ -54,7 +55,7 @@ export const responceSaleEvent = (payload) => async (dispatch) => {
 export const updateSaleEvent = (id,updateData) => async (dispatch) => {
     try {
         dispatch(updateSaleEventRequest());
-        const {data} = await axios.put(`/api/salesEvent/update/${id}`,updateData);
+        const {data} = await api.put(`/api/salesEvent/update/${id}`,updateData);
         dispatch(updateSaleEventSuccess(data));
     } catch (error) {
         dispatch(updateSaleEventFail(error.response.data.message));
@@ -63,7 +64,7 @@ export const updateSaleEvent = (id,updateData) => async (dispatch) => {
 export const deleteSaleEvent = (id) => async (dispatch) => {
     try {
         dispatch(SaleEventDeleteRequest());
-        const {data} = await axios.delete(`/api/salesEvent/delete/${id}`);
+        const {data} = await api.delete(`/api/salesEvent/delete/${id}`);
         dispatch(SaleEventDeleteSuccess(data));
     } catch (error) {
         dispatch(SaleEventDeleteFail(error.response.data.message));
@@ -73,7 +74,7 @@ export const deleteSaleEvent = (id) => async (dispatch) => {
 export const toggleSaleEvent = (id) => async (dispatch) => {
     try {
         dispatch(toggleSaleEventRequest());
-        await axios.put(`/api/salesEvent/toggle/`,id);
+        await api.put(`/api/salesEvent/toggle/`,id);
         dispatch(toggleSaleEventSuccess());
     } catch (error) {
         dispatch(toggleSaleEventFail(error.response.data.message));

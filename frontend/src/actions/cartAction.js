@@ -1,10 +1,10 @@
-import axios from "axios";
 import { addCartItemRequest, addCartItemSucess } from "../slices/cartSlice"
+import api from "./api";
 
 export const addCartItem = (id, qty) => async(dispatch) => {
     try {
         dispatch(addCartItemRequest);
-        const { data } = await axios.get(`/api/product/singleProduct/${id}`);
+        const { data } = await api.get(`/api/product/singleProduct/${id}`);
         dispatch(addCartItemSucess({
             product: data.product._id,
             name: data.product.name,

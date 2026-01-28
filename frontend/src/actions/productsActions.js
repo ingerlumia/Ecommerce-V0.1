@@ -1,4 +1,3 @@
-import axios from "axios"
 import { 
     productsRequest, productsSuccess, productsFail, 
     rawProductsRequest, rawProductsSuccess, rawProductsFail, 
@@ -13,6 +12,7 @@ import {
     viewProductFail,viewProductRequest,viewProductSuccess,
     updateStockRequest, updateStockSuccess,updateStockFail
 } from "../slices/productsSlice";
+import api from "./api";
 
 
 export const getProducts = (keyword, price, catagory, rating, currentPage) => async (dispatch) => {
@@ -39,7 +39,7 @@ export const getProducts = (keyword, price, catagory, rating, currentPage) => as
             link += `&ratings=${rating}`;
         }
 
-        const { data } = await axios.get(link);
+        const { data } = await api.get(link);
         dispatch(productsSuccess(data));
 
     } catch (error) {
@@ -50,7 +50,7 @@ export const getProducts = (keyword, price, catagory, rating, currentPage) => as
 export const getProduct = id => async(dispatch) => {
     try {
         dispatch(productRequest());
-        const { data } = await axios.get(`/api/product/singleProduct/${id}`);
+        const { data } = await api.get(`/api/product/singleProduct/${id}`);
         dispatch(productSuccess(data));
     } catch (error) {
         dispatch(productFail(error.response.data.message));
@@ -61,7 +61,7 @@ export const allProducts = () => async (dispatch) => {
     try {
         dispatch(rawProductsRequest());
 
-        const { data } = await axios.get('/api/product/viewallProducts');
+        const { data } = await api.get('/api/product/viewallProducts');
         dispatch(rawProductsSuccess(data));
     } catch (error) {
         dispatch(rawProductsFail(error?.response.data.message))
@@ -72,7 +72,7 @@ export const createNewProduct = productData => async (dispatch) => {
     try {
         dispatch(newProductRequest());
 
-        const { data } = await axios.post('/api/product/new',productData);
+        const { data } = await api.post('/api/product/new',productData);
         dispatch(newProductSuccess(data));
     } catch (error) {
         dispatch(newProductFail(error.response.data.message))
@@ -83,7 +83,7 @@ export const deleteProduct = id => async (dispatch) => {
     try {
         dispatch(deleteProductRequest());
 
-        await axios.delete(`/api/product/deletesingleProduct/${id}`);
+        await api.delete(`/api/product/deletesingleProduct/${id}`);
         dispatch(deleteProductSuccess());
     } catch (error) {
         dispatch(deleteProductFail(error.response.data.message))
@@ -94,7 +94,7 @@ export const updateProduct = (productData, id) => async (dispatch) => {
     try {
         dispatch(updateProductRequest());
 
-        const { data } = await axios.put(`/api/product/updatesingleProduct/${id}`, productData);
+        const { data } = await api.put(`/api/product/updatesingleProduct/${id}`, productData);
         dispatch(updateProductSuccess(data));
     } catch (error) {
         dispatch(updateProductFail(error.response.data.message))
@@ -103,7 +103,7 @@ export const updateProduct = (productData, id) => async (dispatch) => {
 export const updateProductSeo = (id,formData) => async (dispatch) => {
     try {
         dispatch(updateProductRequest());
-        const { data } = await axios.put(`/api/admin/product/update/product/Seo/${id}`, formData);
+        const { data } = await api.put(`/api/admin/product/update/product/Seo/${id}`, formData);
         dispatch(updateProductSuccess(data));
     } catch (error) {
         dispatch(updateProductFail(error.response.data.message))
@@ -119,7 +119,7 @@ export const createReview = reviewData => async(dispatch) => {
                 'Content-type':'application/json'
             }
         }
-        const { data } = await axios.put(`/api/product/review`,reviewData,config);
+        const { data } = await api.put(`/api/product/review`,reviewData,config);
         dispatch(createReviewSuccess(data));
     } catch (error) {
         dispatch(createReviewFail(error.response.data.message));
@@ -129,7 +129,7 @@ export const createReview = reviewData => async(dispatch) => {
 export const getReviews = (id) => async (dispatch) => {
     try {
         dispatch(reviewRequest());
-        const { data } = await axios.get(`/api/product/get/reviews/`, { params: { id } });
+        const { data } = await api.get(`/api/product/get/reviews/`, { params: { id } });
         dispatch(reviewSuccess(data));
     } catch (error) {
         dispatch(reviewFail(error.response.data.message))
@@ -139,7 +139,7 @@ export const getReviews = (id) => async (dispatch) => {
 export const deleteReviews = (id, productId) => async (dispatch) => {
     try {
         dispatch(reviewDeleteRequest());
-        await axios.delete(`/api/product/reviews`, { params: { id, productId } });
+        await api.delete(`/api/product/reviews`, { params: { id, productId } });
         dispatch(reviewDeleteSuccess());
     } catch (error) {
         dispatch(reviewDeleteFail(error.response.data.message))
@@ -156,7 +156,7 @@ export const reviewGetProducts = (keyword) => async (dispatch) => {
         if (keyword) {
             link += `&keyword=${keyword}`;
         }
-        const { data } = await axios.get(link);
+        const { data } = await api.get(link);
         dispatch(reviewProductsSuccess(data));
 
     } catch (error) {
@@ -188,7 +188,7 @@ export const viewProducts = (keyword, price, category, rating,attributes={}) => 
             link += `ratings=${rating}`;
         }
 
-        const { data } = await axios.get(link);
+        const { data } = await api.get(link);
         dispatch(viewProductSuccess(data));
 
     } catch (error) {
@@ -204,7 +204,7 @@ export const updateProductStatus = (id ,status, sellerEmail, sellerName) => asyn
                 'Content-type': 'application/json'
             }
         }
-        const { data } = await axios.put(`/api/product/updateStatus/${id}`, {status:status,sellerEmail,sellerName},config);
+        const { data } = await api.put(`/api/product/updateStatus/${id}`, {status:status,sellerEmail,sellerName},config);
         dispatch(updateProductStatusSuccess(data));
     } catch (error) {
         dispatch(updateProductStatusFail(error.response.data.message))
@@ -214,7 +214,7 @@ export const updateProductStatus = (id ,status, sellerEmail, sellerName) => asyn
 export const stockUpdate = (id,stock) => async(dispatch) =>{
     try {
         dispatch(updateStockRequest());
-        await axios.put(`/api/product/updateProductstock/${id}`,
+        await api.put(`/api/product/updateProductstock/${id}`,
         { stock: stock },
         { headers: { 'Content-Type': 'application/json' } });
         dispatch(updateStockSuccess());
