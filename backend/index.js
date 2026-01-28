@@ -18,26 +18,30 @@ app.use('./uploads',express.static('uploads'));
 app.use(express.json());
 app.use(cookieparser());
 
+// Updated allowed origins with HTTPS
 const allowedOrigins = [
-  "http://localhost:3000",
-  "https://ecommercev01-parvins-projects-aef319f0.vercel.app",
-  "https://ecommercev01-git-main-parvins-projects-aef319f0.vercel.app"
+    "http://localhost:3000",
+    "https://ecommercev01-parvins-projects-aef319f0.vercel.app",
+    "https://ecommercev01-git-main-parvins-projects-aef319f0.vercel.app"
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    const isVercelPreview = /\.vercel\.app$/.test(origin) && origin.includes("parvins-projects");
+    origin: function (origin, callback) {
+        // allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
 
-    if (allowedOrigins.indexOf(origin) !== -1 || isVercelPreview) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
+        // Check if origin is in the allowed list or is a Vercel preview URL
+        const isVercelPreview = origin.endsWith(".vercel.app") && origin.includes("parvins-projects");
+
+        if (allowedOrigins.indexOf(origin) !== -1 || isVercelPreview) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 
@@ -75,6 +79,7 @@ app.listen(port,() =>{
     console.log(`Server Running on http://localhost:${port}`);
     connectdb();
 })
+
 
 
 
