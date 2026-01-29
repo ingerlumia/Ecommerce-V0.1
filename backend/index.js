@@ -14,10 +14,10 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.set('trust proxy',true);
 //Middleware
-app.use('./uploads',express.static('uploads'));
+
 app.use(express.json());
 app.use(cookieparser());
-
+app.use('/uploads',express.static('uploads'));
 // Updated allowed origins with HTTPS
 const allowedOrigins = [
     "http://localhost:3000",
@@ -44,9 +44,6 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-
-//Static Files
-app.use("/uploads",express.static('uploads'));
 
 //Router
 import userRoutes from './routes/userRoute.js';
@@ -79,6 +76,7 @@ app.listen(port,() =>{
     console.log(`Server Running on http://localhost:${port}`);
     connectdb();
 })
+
 
 
 
