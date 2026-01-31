@@ -11,6 +11,7 @@ import { Order } from "../Model/orderModel.js";
 import { User } from "../Model/UserModel.js";
 import { Website } from "../Model/websiteModel.js";
 import { SellerLedger } from "../Model/sellerLedgerModel.js";
+import { uploadToCloudinary } from "../utils/cloudinary.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -935,3 +936,4 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
