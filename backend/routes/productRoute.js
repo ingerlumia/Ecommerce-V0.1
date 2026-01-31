@@ -32,7 +32,7 @@ router.put('/admin/product/update/AllProduct/catagoy', isAuth,rolecheck('admin')
 router.put('/admin/product/update/product/Seo/:id', isAuth,rolecheck('admin'),uploadNone,updateProductSeo);
 
 
-router.put('/product/updatesingleProduct/:id',isAuth,rolecheck('admin','manager','seller'),uploadFie,updatesingleproduct);
+router.put('/product/updatesingleProduct/:id',isAuth,rolecheck('admin','manager','seller'),uploadNone,updatesingleproduct);
 router.delete('/product/deletesingleProduct/:id',isAuth,rolecheck('admin','manager','seller'),deletesingleproduct);
 router.get('/data/get/summary', isAuth, rolecheck('admin','manager','seller'), getDashboardSummary);
 
@@ -46,5 +46,6 @@ router.put('/product/updateProductstock/:id',isAuth,rolecheck('seller'),stockUpd
 router.delete('/product/reviews', isAuth ,rolecheck('admin','manager'), deleteReview);
 
 export default router;
+
 
 
