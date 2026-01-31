@@ -7,6 +7,7 @@ import crypto from "crypto";
 import { log } from "console";
 import { statusCode } from "../Middlewar/statusCode.js";
 import { singleFileUpload } from "../Middlewar/multer.js";
+import { uploadToCloudinary } from "../utils/cloudinary.js";
 
 dotenv.config();
 const aCTIVATION_KEY = process.env.ACTIVATION_KEY;
@@ -21,7 +22,14 @@ export const registerUser = async (req, res) => {
       base_URL = `${req.protocol}://${req.get("host")}`;
     }
     if (req.file) {
-      avatar = `${base_URL}/uploads/${req.file.filename}`;
+      // 1. Wait for the upload
+      const result = await uploadToCloudinary(req.file.buffer, 'avatars');
+      
+      // 2. Grab JUST the secure_url string
+      // Your log shows 'result' is the whole object, Mongoose wants just the link
+      avatar = result.secure_url; 
+      
+      newUserData = { ...newUserData, avatar };
     }
 
     const options = {
@@ -328,38 +336,45 @@ export const updateProfile = async (req, res) => {
   try {
     let addresses = [];
 
+    // Parse addresses if they exist
     if (req.body.addresses) {
       addresses = JSON.parse(req.body.addresses);
     }
+
     let newUserData = {
       name: req.body.name,
       email: req.body.email,
       addresses,
     };
-
-    let avatar;
-
-    let base_URL = process.env.REACT_APP_BACKEND_URL;
-    if (process.env.NODE_ENV === "production") {
-      base_URL = `${req.protocol}://${req.get("host")}`;
-    }
-    if (req.file) {
-      avatar = `${base_URL}/uploads/${req.file.filename}`;
+let avatar;
+if (req.file) {
+      // 1. Wait for the upload
+      const result = await uploadToCloudinary(req.file.buffer, 'avatars');
+      
+      // 2. Grab JUST the secure_url string
+      // Your log shows 'result' is the whole object, Mongoose wants just the link
+      avatar = result.secure_url; 
+      
       newUserData = { ...newUserData, avatar };
     }
 
+    // Update the user in the database
     const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
       new: true,
       runValidators: true,
     });
 
-    return res.status(statusCode.ok).json({
-      message: "Profile updated successfuly!!!",
+    return res.status(200).json({
+      success: true,
+      message: "Profile updated successfully!!!",
       user,
     });
+
   } catch (err) {
-    return res.status(statusCode.server_Error).json({
+    console.error("Update Error:", err); // Log the real error to your console
+    return res.status(500).json({
       message: "Internal server error",
+      error: err.message, // Send the message back so you can debug in React
     });
   }
 };

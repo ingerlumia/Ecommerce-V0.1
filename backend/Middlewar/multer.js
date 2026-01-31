@@ -1,23 +1,23 @@
 import multer from 'multer';
-import {v4 as uuid} from 'uuid';
 
-const storage = multer.diskStorage({
-    destination(req,file,cb){
-        cb(null,'./uploads');
-    },
-    filename(req,file,cb){
-        const id = uuid();
-        const extention = file.originalname.split('.').pop();
-        const filename =`${id}.${extention}`;
-        cb(null,filename);
-    },
-});
+// 1. Switch to memoryStorage
+const storage = multer.memoryStorage();
 
+// 2. Define your middleware using the memory storage
+// No need for uuid here anymore; Cloudinary handles unique naming.
 
-export const uploadFie = multer({storage}).array('images',6);
-export const upload = multer({storage}).single('image');
+export const uploadFie = multer({ 
+    storage,
+    limits: { fileSize: 10 * 1024 * 1024 } // Optional: 10MB limit
+}).array('images', 6);
 
-export const singleFileUpload = multer({storage}).single('avatar');
+export const upload = multer({ 
+    storage 
+}).single('image');
 
-const storageX = multer.memoryStorage();
-export const uploadNone = multer({ storageX });
+export const singleFileUpload = multer({ 
+    storage 
+}).single('avatar');
+
+// For routes that don't expect files but use multipart/form-data
+export const uploadNone = multer({ storage }).none();

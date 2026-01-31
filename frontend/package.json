@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.8",
+    "cloudinary": "^2.9.0",
     "countries-list": "^3.1.1",
     "framer-motion": "^12.23.24",
     "mdb-react-ui-kit": "^9.0.0",

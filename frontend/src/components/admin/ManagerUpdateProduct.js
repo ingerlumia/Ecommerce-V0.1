@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { clearError, clearUpdatedProduct } from "../../slices/productsSlice";
 import { getUser } from "../../actions/userAction";
 import { getProduct, updateProductStatus } from "../../actions/productsActions";
 
-
 export default function ManagerUpdateProduct() {
-
   const [status, setStatus] = useState("");
 
-  const { isProductUpdated, loading, error, product = {}} = useSelector(state => state.productsState);
-  const {user = {} } = useSelector(state => state.userState);
+  const {
+    isProductUpdated,
+    loading,
+    error,
+    product = {},
+  } = useSelector((state) => state.productsState);
+  const { user = {} } = useSelector((state) => state.userState);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id: productId } = useParams();
@@ -22,34 +25,29 @@ export default function ManagerUpdateProduct() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(updateProductStatus( productId,status,sellerEmail,sellerName));
-
-  }
+    dispatch(updateProductStatus(productId, status, sellerEmail, sellerName));
+  };
   useEffect(() => {
     if (sellerid) {
       dispatch(getUser(sellerid));
     }
   }, [sellerid, dispatch]);
   useEffect(() => {
-
     if (isProductUpdated) {
-      toast.success('Product Updated Sucessfuly', {
-        onOpen: () => dispatch(clearUpdatedProduct())
-      })
-      navigate('/product/productlist')
+      toast.success("Product Updated Sucessfuly", {
+        onOpen: () => dispatch(clearUpdatedProduct()),
+      });
+      navigate("/product/productlist");
       return;
     }
     if (error) {
       toast.error(error, {
-        onOpen: () => dispatch(clearError())
-      })
+        onOpen: () => dispatch(clearError()),
+      });
       return;
     }
-    dispatch(getProduct(productId))
-
-
-  }, [isProductUpdated,productId,error,navigate, dispatch])
-
+    dispatch(getProduct(productId));
+  }, [isProductUpdated, productId, error, navigate, dispatch]);
 
   return (
     <div className="container my-4 d-flex justify-content-center">
@@ -72,8 +70,15 @@ export default function ManagerUpdateProduct() {
               </div>
 
               <div className="mb-2 d-flex ">
-                <span className="fw-bold">Price (₹):</span>
-                <span>₹{Number(product?.price).toLocaleString()}</span>
+                <h4 className="text-primary">
+                  Price: ₹{product?.pricing?.basePrice}
+                </h4>
+                <h6 className="text-muted">
+                  MRP:
+                  <span className="text-decoration-line-through">
+                    ₹{product?.pricing?.mrp}
+                  </span>
+                </h6>
               </div>
 
               <div className="mb-2 d-flex">
@@ -101,7 +106,7 @@ export default function ManagerUpdateProduct() {
                   {product?.images?.map((img, idx) => (
                     <img
                       key={idx}
-                      src={`http://localhost:2005${img.image}`}
+                      src={`${img.image}`}
                       alt="Product"
                       height="60"
                       width="70"
@@ -119,7 +124,9 @@ export default function ManagerUpdateProduct() {
                     className="form-select w-auto"
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
-                  >         <option value="">-- Select Status --</option>
+                  >
+                    {" "}
+                    <option value="">-- Select Status --</option>
                     <option value="pending">Pending</option>
                     <option value="active">Active</option>
                     <option value="rejected">Rejected</option>
@@ -145,8 +152,4 @@ export default function ManagerUpdateProduct() {
       </div>
     </div>
   );
-
-
-
 }
-

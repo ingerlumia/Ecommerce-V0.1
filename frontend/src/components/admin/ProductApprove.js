@@ -55,7 +55,7 @@ export default function ProductApprove() {
                             {/* Left side: product image + info */}
                             <div className="d-flex align-items-center gap-3">
                               <img
-                                src={`http://localhost:2005${p.images[0].image}`}
+                                src={`${p.images[0].image}`}
                                 alt={p.name}
                                 style={{
                                   width: "60px",
@@ -67,7 +67,10 @@ export default function ProductApprove() {
                               <div>
                                 <h6 className="mb-1 fw-bold">{p.name}</h6>
                                 <small className="text-muted">{p.description}</small>
-                                <div className="text-muted">₹{Number(p.price).toLocaleString()}</div>
+                                <h4 className="text-primary">Price: ₹{p?.pricing?.basePrice}</h4>
+                                <h6 className="text-muted">
+                                    MRP: <span className="text-decoration-line-through">₹{p?.pricing?.mrp}</span>
+                                </h6>
                               </div>
                             </div>
       

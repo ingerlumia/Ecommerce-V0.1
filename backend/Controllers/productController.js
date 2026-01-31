@@ -39,9 +39,11 @@ export const createProduct = async (req, res) => {
       stock,
       managerEmail,
     } = req.body;
-    const images = req.files.map((file) => ({
-      image: `${base_URL}/uploads/${file.filename}`,
-    }));
+
+    // upload
+    const results = await Promise.all(
+      req.files.map((f) => uploadToCloudinary(f.buffer, "products")),
+    );
 
     const user = req.user.id;
     if (!images) {
@@ -293,7 +295,7 @@ export const updatesingleproduct = async (req, res) => {
       images = product.images;
     }
 
-        let base_URL = process.env.BACKEND_URL;
+    let base_URL = process.env.BACKEND_URL;
     if (process.env.NODE_ENV === "production") {
       base_URL = `${req.protocol}://${req.get("host")}`;
     }
@@ -528,7 +530,7 @@ export const productStatusUpdate = async (req, res) => {
         message: "product not found",
       });
     }
-          let base_URL = process.env.Frontend_URL;
+    let base_URL = process.env.Frontend_URL;
     if (process.env.NODE_ENV === "production") {
       base_URL = `${req.protocol}://${req.get("host")}`;
     }

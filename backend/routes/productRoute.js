@@ -29,7 +29,7 @@ router.put('/product/review/', isAuth,createReview);
 //Admin
 router.put('/admin/product/update/status/allProduct/', isAuth,rolecheck('admin'),updateAllProductsStatus);
 router.put('/admin/product/update/AllProduct/catagoy', isAuth,rolecheck('admin'),updateAllProductsCategory);
-router.put('/admin/product/update/product/Seo/:id', isAuth,rolecheck('admin'),uploadNone.none(),updateProductSeo);
+router.put('/admin/product/update/product/Seo/:id', isAuth,rolecheck('admin'),uploadNone,updateProductSeo);
 
 
 router.put('/product/updatesingleProduct/:id',isAuth,rolecheck('admin','manager','seller'),uploadFie,updatesingleproduct);
