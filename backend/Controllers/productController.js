@@ -320,7 +320,7 @@ export const updatesingleproduct = async (req, res) => {
         message: "Product Not Found",
       });
     }
-    req.body.images = images;
+
 
     let attributes = req.body.attributes;
     let parsedAttributes = {};
@@ -936,4 +936,5 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
