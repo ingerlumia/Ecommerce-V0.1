@@ -24,11 +24,6 @@ export const createProduct = async (req, res) => {
       });
     }
 
-    let base_URL = process.env.BACKEND_URL;
-    if (process.env.NODE_ENV === "production") {
-      base_URL = `${req.protocol}://${req.get("host")}`;
-    }
-
     const {
       name,
       pricing,
@@ -40,10 +35,14 @@ export const createProduct = async (req, res) => {
       managerEmail,
     } = req.body;
 
-    // upload
     const results = await Promise.all(
-      req.files.map((f) => uploadToCloudinary(f.buffer, "products")),
+      req.files.map((file) => uploadToCloudinary(file.buffer, "products")),
     );
+
+    const images = results.map((r) => ({
+      url: r.secure_url,
+      public_id: r.public_id,
+    }));
 
     const user = req.user.id;
     if (!images) {
@@ -292,19 +291,21 @@ export const updatesingleproduct = async (req, res) => {
     let images = product.images;
 
     if (req.body.clearImages === "false") {
-      images = product.images;
+            await Promise.all(
+        product.images.map(img =>
+          deleteFromCloudinary(img.public_id)
+        )
+      );
     }
 
-    let base_URL = process.env.BACKEND_URL;
-    if (process.env.NODE_ENV === "production") {
-      base_URL = `${req.protocol}://${req.get("host")}`;
-    }
+    const results = await Promise.all(
+      req.files.map((f) => uploadToCloudinary(f.buffer, "products")),
+    );
 
-    if (req.files && req.files.length > 0) {
-      images = req.files.map((file) => ({
-        image: `${base_URL}/uploads/${file.filename}`,
-      }));
-    }
+    product.images = results.map((r) => ({
+      url: r.secure_url,
+      public_id: r.public_id,
+    }));
 
     if (!images) {
       return res.status(statusCode.bad_Request).json({
