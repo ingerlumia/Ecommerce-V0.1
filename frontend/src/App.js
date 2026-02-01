@@ -68,27 +68,40 @@ function App() {
   const [stripeApiKey, setstripeApiKey] = useState();
   //const {user} = useSelector(state => state.authState)
 
-  useEffect(() => {
-    store.dispatch(loadUser);
+useEffect(() => {
+  store.dispatch(loadUser());
 
-    async function getStripeApiKey() {
-      try {
-        const { data } = await axios.get("/api/stripeapi", {
-          withCredentials: true, // important if you’re using cookies
+  const API_BASE =
+    process.env.NODE_ENV === "production"
+      ? "https://YOUR_BACKEND_NAME.onrender.com" // 👈 Render backend URL
+      : "http://localhost:2005";
+
+  async function getStripeApiKey() {
+    try {
+      const { data } = await axios.get(
+        `${API_BASE}/api/stripeapi`,
+        {
+          withCredentials: true,
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`, // if JWT in localStorage
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        });
+        }
+      );
 
-        setstripeApiKey(data.stripeApiKey);
-      } catch (err) {
-        console.error("Stripe key fetch failed:", err.response?.data || err.message);
-      }
+      setstripeApiKey(data.stripeApiKey);
+    } catch (err) {
+      console.error(
+        "Stripe key fetch failed:",
+        err.response?.data || err.message
+      );
     }
+  }
 
-    getStripeApiKey();
-    fetch("/api/website/visite");
-  }, [])
+  getStripeApiKey();
+
+  fetch(`${API_BASE}/api/website/visite`);
+}, []);
+
 
   return (
     <div className="App">
