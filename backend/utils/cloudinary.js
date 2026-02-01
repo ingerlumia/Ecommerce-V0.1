@@ -26,25 +26,19 @@ export const uploadToCloudinary = async (buffer, folder = "products") => {
   const tempFile = path.join(os.tmpdir(), `img-${Date.now()}.jpg`);
 
   try {
-    // 1️⃣ Resize BEFORE upload
     await sharp(buffer)
       .resize(128, 128, { fit: "inside" })
       .jpeg({ quality: 80 })
       .toFile(tempFile);
 
-    // 2️⃣ Upload via FILE PATH (stable)
     const result = await cloudinary.uploader.upload(tempFile, {
       folder,
       resource_type: "image",
     });
 
     return result;
-  } catch (err) {
-    console.error("Cloudinary upload failed:", err);
-    throw err;
   } finally {
-    // 3️⃣ Cleanup temp file
-    await fs.remove(tempFile);
+    await fs.remove(tempFile); // always cleanup
   }
 };
 

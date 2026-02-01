@@ -36,6 +36,7 @@ const schema = new mongoose.Schema({
                 type: String,
                 required: true
             },
+            public_id: { type: String, required: true }
         }
     ],
     category: {

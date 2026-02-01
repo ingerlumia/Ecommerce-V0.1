@@ -261,124 +261,74 @@ export const deletesingleproduct = async (req, res) => {
 };
 
 //Update user using user ID
-
 export const updatesingleproduct = async (req, res) => {
   try {
-    const userId = req.params.id;
+    const productId = req.params.id;
 
-    //Role Checking
-    if (
-      req.user.role != "admin" &&
-      req.user.role !== "seller" &&
-      req.user.role !== "manager"
-    ) {
-      return res.status(403).json({
-        message: "Unauthorized User",
-      });
+    if (!mongoose.Types.ObjectId.isValid(productId)) {
+      return res.status(400).json({ message: "Invalid Product ID" });
     }
 
-    // invalid id
-    if (!mongoose.Types.ObjectId.isValid(userId)) {
-      return res.status(statusCode.bad_Request).json({
-        message: `Can't find the Product ID`,
-      });
-    }
-
-    let product = await Product.findById(userId);
+    const product = await Product.findById(productId);
     if (!product) {
-  return res.status(404).json({ message: "Product Not Found" });
-}
-    //change string type seller data to object
+      return res.status(404).json({ message: "Product Not Found" });
+    }
+
+    // Parse seller
     if (req.body.seller && typeof req.body.seller === "string") {
-      try {
-        req.body.seller = JSON.parse(req.body.seller);
-      } catch (e) {
-        return res.status(400).json({ message: "Invalid seller format" });
-      }
+      req.body.seller = JSON.parse(req.body.seller);
     }
 
     let images = product.images || [];
 
-
-    if (req.body.clearImages === "false") {
-            await Promise.all(
-        product.images.map(img =>
-          deleteFromCloudinary(img.public_id)
-        )
-      );
+    // ✅ DELETE OLD IMAGES
+    if (req.body.clearImages === "true" && images.length) {
+      for (const img of images) {
+        if (img.public_id) {
+          await deleteFromCloudinary(img.public_id);
+        }
+      }
+      images = [];
     }
 
-    const results = await Promise.all(
-      req.files.map((f) => uploadToCloudinary(f.buffer, "products")),
-    );
-
-    product.images = results.map((r) => ({
-      url: r.secure_url,
-      public_id: r.public_id,
-    }));
-
-    if (!images) {
-      return res.status(statusCode.bad_Request).json({
-        message: "Please select the image",
-      });
-    }
-
-    // if product Not found
-    if (!product) {
-      return res.status(statusCode.bad_Request).json({
-        message: "Product Not Found",
-      });
-    }
-
-// delete old images
-if (req.body.clearImages === "true" && images.length) {
-  for (const img of images) {
-    await deleteFromCloudinary(img.public_id);
-  }
-  images = [];
-}
-
-// upload new images (SEQUENTIAL)
-if (req.files && req.files.length > 0) {
-  for (const file of req.files) {
-    const result = await uploadToCloudinary(file.buffer, "products");
-    images.push({
-      image: result.secure_url,
-      public_id: result.public_id,
-    });
-  }
-}
-
-req.body.images = images;
-
-
-    let attributes = req.body.attributes;
-    let parsedAttributes = {};
-
-    if (attributes) {
-      try {
-        parsedAttributes =
-          typeof attributes === "string" ? JSON.parse(attributes) : attributes;
-      } catch (err) {
-        return res.status(400).json({ message: "Invalid attributes format" });
+    // ✅ UPLOAD NEW IMAGES (ONLY ONCE)
+    if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        const result = await uploadToCloudinary(file.buffer, "products");
+        images.push({
+          image: result.secure_url,
+          public_id: result.public_id,
+        });
       }
     }
-    req.body.attributes = parsedAttributes;
 
-    product = await Product.findByIdAndUpdate(userId, req.body, {
-      new: true,
-      runValidators: true,
+    req.body.images = images;
+
+    // Parse attributes
+    if (req.body.attributes) {
+      req.body.attributes =
+        typeof req.body.attributes === "string"
+          ? JSON.parse(req.body.attributes)
+          : req.body.attributes;
+    }
+
+    const updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      req.body,
+      { new: true, runValidators: true }
+    );
+
+    res.status(200).json({
+      message: "Updated Successfully",
+      product: updatedProduct,
     });
 
-    return res
-      .status(statusCode.ok)
-      .json({ message: "Updated Successfuly", product });
   } catch (err) {
-    res.status(500).json({
-      message: err.message,
-    });
+    console.error(err);
+    res.status(500).json({ message: err.message });
   }
 };
+
 
 // create review
 
