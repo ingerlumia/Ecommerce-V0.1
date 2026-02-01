@@ -98,7 +98,7 @@ export default function Payment() {
         toast.error((await result).error.message);
         document.querySelector("#pay-btn").disabled = false;
       } else {
-        if ((await result).paymentIntent.status === "paid") {
+        if ((await result).paymentIntent.status === "succeeded") {
           toast.success("payment sucess");
           order.paymentInfo = {
             id: (await result).paymentIntent.id,
@@ -218,3 +218,4 @@ export default function Payment() {
         </div>
     </Fragment>
 */
+
