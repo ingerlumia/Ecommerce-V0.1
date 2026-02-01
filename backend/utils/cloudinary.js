@@ -3,11 +3,16 @@ import streamifier from 'streamifier';
 import 'dotenv/config'; // Add this at the absolute top of your entry file
 import express from 'express';
 // ... other imports
+import sharp from "sharp";
+import fs from "fs-extra";
+import path from "path";
+import os from "os";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
 });
 /**
  * Uploads a buffer to Cloudinary
@@ -16,25 +21,36 @@ cloudinary.config({
  * @returns {Promise<String>} - The secure URL of the uploaded image
  * @param {String} publicId - The ID of the image (found in the URL)
  */
-export const uploadToCloudinary = (buffer, folder = "general") => {
-  // CONFIG INSIDE THE FUNCTION
-  cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
-  });
 
-  return new Promise((resolve, reject) => {
-    const stream = cloudinary.uploader.upload_stream(
-      { folder: folder },
-      (error, result) => {
-        if (result) resolve(result);
-        else reject(error);
-      }
-    );
-    streamifier.createReadStream(buffer).pipe(stream);
-  });
+export const uploadToCloudinary = async (buffer, folder = "products") => {
+  const tempFile = path.join(os.tmpdir(), `img-${Date.now()}.jpg`);
+
+  try {
+    // 1️⃣ Resize BEFORE upload
+    await sharp(buffer)
+      .resize(128, 128, { fit: "inside" })
+      .jpeg({ quality: 80 })
+      .toFile(tempFile);
+
+    // 2️⃣ Upload via FILE PATH (stable)
+    const result = await cloudinary.uploader.upload(tempFile, {
+      folder,
+      resource_type: "image",
+    });
+
+    return result;
+  } catch (err) {
+    console.error("Cloudinary upload failed:", err);
+    throw err;
+  } finally {
+    // 3️⃣ Cleanup temp file
+    await fs.remove(tempFile);
+  }
 };
+
+
+
+
 export const uploadProductImages = async (req, res) => {
   try {
     if (!req.files || req.files.length === 0) return res.status(400).send("No files");

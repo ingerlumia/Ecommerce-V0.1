@@ -12,6 +12,10 @@ import { User } from "../Model/UserModel.js";
 import { Website } from "../Model/websiteModel.js";
 import { SellerLedger } from "../Model/sellerLedgerModel.js";
 import { uploadToCloudinary } from "../utils/cloudinary.js";
+import {
+  deleteFromCloudinary,
+  uploadToCloudinary,
+} from "../utils/cloudinary.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -281,6 +285,9 @@ export const updatesingleproduct = async (req, res) => {
     }
 
     let product = await Product.findById(userId);
+    if (!product) {
+  return res.status(404).json({ message: "Product Not Found" });
+}
     //change string type seller data to object
     if (req.body.seller && typeof req.body.seller === "string") {
       try {
@@ -289,7 +296,9 @@ export const updatesingleproduct = async (req, res) => {
         return res.status(400).json({ message: "Invalid seller format" });
       }
     }
-    let images = product.images;
+
+    let images = product.images || [];
+
 
     if (req.body.clearImages === "false") {
             await Promise.all(
@@ -320,6 +329,27 @@ export const updatesingleproduct = async (req, res) => {
         message: "Product Not Found",
       });
     }
+
+// delete old images
+if (req.body.clearImages === "true" && images.length) {
+  for (const img of images) {
+    await deleteFromCloudinary(img.public_id);
+  }
+  images = [];
+}
+
+// upload new images (SEQUENTIAL)
+if (req.files && req.files.length > 0) {
+  for (const file of req.files) {
+    const result = await uploadToCloudinary(file.buffer, "products");
+    images.push({
+      image: result.secure_url,
+      public_id: result.public_id,
+    });
+  }
+}
+
+req.body.images = images;
 
 
     let attributes = req.body.attributes;

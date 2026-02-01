@@ -100,14 +100,19 @@ export const updateProduct = (productData, id) => async (dispatch) => {
         dispatch(updateProductFail(error.response.data.message))
     }
 }
+
 export const updateProductSeo = (id,formData) => async (dispatch) => {
     try {
         dispatch(updateProductRequest());
         const { data } = await api.put(`/api/admin/product/update/product/Seo/${id}`, formData);
         dispatch(updateProductSuccess(data));
     } catch (error) {
-        dispatch(updateProductFail(error.response.data.message))
-    }
+  const message = error.response && error.response.data.message
+    ? error.response.data.message
+    : error.message; // Fallback to "Network Error" or "Server not reachable"
+
+  dispatch(updateProductFail(message))
+}
 }
 
 

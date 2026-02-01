@@ -16,6 +16,8 @@ app.set('trust proxy',true);
 //Middleware
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieparser());
 app.use('/uploads',express.static('uploads'));
 // Updated allowed origins with HTTPS
@@ -24,6 +26,10 @@ const allowedOrigins = [
     "https://ecommercev01-parvins-projects-aef319f0.vercel.app",
     "https://ecommercev01-git-main-parvins-projects-aef319f0.vercel.app"
 ];
+app.use((req, res, next) => {
+  res.setTimeout(30000); // 30 seconds
+  next();
+});
 
 app.use(cors({
     origin: function (origin, callback) {

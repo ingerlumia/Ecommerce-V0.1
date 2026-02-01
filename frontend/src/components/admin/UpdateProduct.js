@@ -83,7 +83,6 @@ export default function UpdateProduct() {
     formData.append("images", file);
   });
     formData.append("clearImages", clearImages);
-
     dispatch(updateProduct(formData, productId));
   };
 
