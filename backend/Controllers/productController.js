@@ -11,7 +11,7 @@ import { Order } from "../Model/orderModel.js";
 import { User } from "../Model/UserModel.js";
 import { Website } from "../Model/websiteModel.js";
 import { SellerLedger } from "../Model/sellerLedgerModel.js";
-import { uploadToCloudinary } from "../utils/cloudinary.js";
+
 import {
   deleteFromCloudinary,
   uploadToCloudinary,
@@ -966,5 +966,6 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
