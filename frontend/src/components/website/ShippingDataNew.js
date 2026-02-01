@@ -21,6 +21,7 @@ export default function ShippingDataNew() {
   const [courier, setCourier] = useState({
     name: "",
     isActive: true,
+    code:'',
     supportsCOD: false,
     serviceableZones: {
       local: true,
@@ -146,6 +147,15 @@ export default function ShippingDataNew() {
                 value={courier.name}
                 onChange={(e) =>
                   setCourier({ ...courier, name: e.target.value })
+                }
+              />
+            </Col>
+            <Col md={6}>
+              <Form.Label>Code</Form.Label>
+              <Form.Control
+                value={courier.code}
+                onChange={(e) =>
+                  setCourier({ ...courier, code: e.target.value })
                 }
               />
             </Col>

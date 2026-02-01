@@ -172,7 +172,7 @@ export default function UpdateProfile() {
             required
           >
             <option value="">Select State...</option>
-            <option>tamil Nadu</option>
+            <option value="tamil nadu">tamil Nadu</option>
             <option>States2</option>
             <option>states3 </option>
           </select>

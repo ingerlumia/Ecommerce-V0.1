@@ -19,6 +19,7 @@ export const Product_Status = [
 
 export const Payment_Status = [
     'pending',
+    'succeeded',
     'paid',
     'failed',
     'refunded'

@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema({
         state: { type: String, required: true },
         country: { type: String, required: true },
         phoneNumber: { type: String, required: true },
-        postalCode: { type: String, required: true }
+        posetelCode: { type: String, required: true }
     },
 
     user: {

@@ -64,7 +64,7 @@ export default function Cart({ cartItems, setCartItems }) {
         navigate('/Login?redirect=shipping')
     }
 
-
+console.log(items)
     
     return items.length > 0 ? (
   <Fragment>
@@ -106,7 +106,7 @@ export default function Cart({ cartItems, setCartItems }) {
 
                   {/* PRICE */}
                   <div className="col-6 col-lg-2 text-center mt-3 mt-lg-0">
-                    <h5 className="text-success fw-bold">₹{item.price}</h5>
+                    <h5 className="text-success fw-bold">₹{item.price.basePrice}</h5>
                   </div>
 
                   {/* QTY CHANGER */}

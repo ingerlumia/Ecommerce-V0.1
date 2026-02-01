@@ -10,7 +10,7 @@ const dispatch = useDispatch();
 
 useEffect(()=>{
     dispatch(userorders)
-},[]);
+},[dispatch]);
 
   return userOrders ? (
     <Fragment>
@@ -29,7 +29,7 @@ useEffect(()=>{
                   <p>order ID: {orders._id}</p>
                     <div className="col-4 col-lg-3">
                       <img
-                        src={`http://localhost:2005${item.image}`}
+                        src={`${item.image}`}
                         alt={item.name}
                         height="90"
                         width="115"

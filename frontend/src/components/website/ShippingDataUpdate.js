@@ -67,6 +67,7 @@ export default function ShippingDataUpdate() {
       couriers: (country.couriers || []).map((c) => ({
         _id: c._id,
         name: c.name || "",
+        code: c.code || "",
         isActive: !!c.isActive,
         supportsCOD: !!c.supportsCOD,
 
@@ -181,6 +182,17 @@ export default function ShippingDataUpdate() {
                           onChange={(e) => {
                             const couriers = structuredClone(data.couriers);
                             couriers[ci].name = e.target.value;
+                            setData({ ...data, couriers });
+                          }}
+                        />
+                      </Col>
+                      <Col md={4}>
+                        <Form.Label>code</Form.Label>
+                        <Form.Control
+                          value={courier.code}
+                          onChange={(e) => {
+                            const couriers = structuredClone(data.couriers);
+                            couriers[ci].code = e.target.value;
                             setData({ ...data, couriers });
                           }}
                         />

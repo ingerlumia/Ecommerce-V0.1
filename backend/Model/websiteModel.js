@@ -110,6 +110,10 @@ const websiteSchema = new mongoose.Schema(
     shipping: {
       countries: {
         type: Map,
+        code: {
+      type: String,
+      required: false // DEL, BD
+    },
         of: new mongoose.Schema(
           {
             currency: {

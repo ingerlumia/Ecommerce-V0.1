@@ -9,7 +9,7 @@ export const addCartItem = (id, qty) => async(dispatch) => {
             product: data.product._id,
             name: data.product.name,
             description: data.product.description,
-            price: data.product.price,
+            price: data.product.pricing.basePrice,
             image: data.product.images[0].image,
             stock: data.product.stock,
             seller: data.product.seller,

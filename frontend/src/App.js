@@ -76,9 +76,13 @@ function App() {
       try {
         
         const { data } = await axios.get(`${url}/api/stripeapi`, {
+<<<<<<< HEAD
           withCredentials: true, // important if you’re using cookies
+=======
+          withCredentials: true,
+>>>>>>> b7fc352 (Fix login URL and environment variables)
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`, // if JWT in localStorage
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
 
@@ -91,7 +95,10 @@ function App() {
     getStripeApiKey();
     fetch(`${url}/api/website/visite`);
   }, [url])
+<<<<<<< HEAD
 
+=======
+>>>>>>> b7fc352 (Fix login URL and environment variables)
 
   return (
     <div className="App">
@@ -192,6 +199,7 @@ export default App;
             <Route path="/manager/userupdate/:id" element={<ProductedRoute isManager={true}><ManagerUserUpdate /></ProductedRoute>} />
 
 */
+
 
 /* 
 

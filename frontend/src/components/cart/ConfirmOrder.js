@@ -10,7 +10,8 @@ export default function ConfirmOrder() {
     const { shippingInfo, items: cartItems } = useSelector(state => state.cartState);
     const { user } = useSelector(state => state.authState);
     const navigate = useNavigate();
-
+console.log(shippingInfo)
+console.log(cartItems)
     const itemsPrice = cartItems.reduce((acc, item) => (acc + item.price * item.qty), 0);
     const shippingPrice = itemsPrice > 5000 ? 0 : 355;
     let taxPrice = Number(0.02 * itemsPrice)
@@ -30,7 +31,7 @@ export default function ConfirmOrder() {
 
     useEffect(() => {
         ValidateShipping(shippingInfo, navigate);
-    }, [])
+    }, [shippingInfo,navigate])
 
     return <Fragment>
         <CheckOutInfo step1 step2 />
@@ -67,10 +68,10 @@ export default function ConfirmOrder() {
                                     <small>Qty: {item.qty}</small>
                                 </div>
                                 <div className="col-4 col-lg-3">
-                                    <img  src={`http://localhost:2005${item.image}`} alt="Laptop" height="90" width="115"/>
+                                    <img  src={`${item.image}`} alt="Laptop" height="90" width="115"/>
                                 </div>
                                 <div>
-                                    <strong>${item.price}</strong>
+                                    <strong>${item.price.basePrice}</strong>
                                 </div>
                             </div>
 
