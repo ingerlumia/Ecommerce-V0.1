@@ -63,7 +63,8 @@ export default function Payment() {
         document.querySelector('#pay-btn').disabled = true;
         
         try {
-            const { data } = await axios.post('/api/payment/process', paymentData);
+            let url = process.env.REACT_APP_BACKEND_URL;
+            const { data } = await axios.post(`${url}/api/payment/process`, paymentData);
             const client_secret = data.client_secret;
           
             const result = stripe.confirmCardPayment(client_secret, {
@@ -183,4 +184,5 @@ export default function Payment() {
         </div>
     </Fragment>
 */
+
 
