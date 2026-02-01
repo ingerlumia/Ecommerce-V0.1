@@ -73,7 +73,7 @@ useEffect(() => {
 
   const API_BASE =
     process.env.NODE_ENV === "production"
-      ? "https://YOUR_BACKEND_NAME.onrender.com" // 👈 Render backend URL
+      ? "https://demo-9iew.onrender.com" 
       : "http://localhost:2005";
 
   async function getStripeApiKey() {
