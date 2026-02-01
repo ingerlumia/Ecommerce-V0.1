@@ -66,6 +66,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [wish, setWish] = useState([]);
   const [stripeApiKey, setstripeApiKey] = useState();
+  let url = process.env.REACT_APP_BACKEND_URL;
   //const {user} = useSelector(state => state.authState)
 
   useEffect(() => {
@@ -73,7 +74,8 @@ function App() {
 
     async function getStripeApiKey() {
       try {
-        const { data } = await axios.get("/api/stripeapi", {
+        
+        const { data } = await axios.get(`${url}/api/stripeapi`, {
           withCredentials: true, // important if you’re using cookies
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`, // if JWT in localStorage
@@ -87,8 +89,8 @@ function App() {
     }
 
     getStripeApiKey();
-    fetch("/api/website/visite");
-  }, [])
+    fetch(`${url}/api/website/visite`);
+  }, [url])
 
 
   return (
