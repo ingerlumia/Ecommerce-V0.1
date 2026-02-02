@@ -29,7 +29,7 @@ export const registerUser = async (req, res) => {
       // Your log shows 'result' is the whole object, Mongoose wants just the link
       avatar = result.secure_url; 
       
-      newUserData = { ...newUserData, avatar };
+      let newUserData = { ...newUserData, avatar };
     }
 
     const options = {
@@ -479,6 +479,7 @@ export const getSpecificUser = async (req, res) => {
     user,
   });
 };
+
 
 
 
