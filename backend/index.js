@@ -20,8 +20,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieparser());
 app.use('/uploads',express.static('uploads'));
-// Updated allowed origins with HTTPS
-import cors from "cors";
 
 const allowedOrigins = [
   "http://localhost:3000",
@@ -81,6 +79,7 @@ app.listen(port,() =>{
     console.log(`Server Running on http://localhost:${port}`);
     connectdb();
 })
+
 
 
 
