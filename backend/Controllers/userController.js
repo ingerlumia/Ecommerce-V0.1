@@ -16,69 +16,78 @@ const jwt_key = process.env.JWT_SECRET;
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password, contact, addresses } = req.body;
-    let avatar;
-    let base_URL = process.env.REACT_APP_BACKEND_URL;
-    if (process.env.NODE_ENV === "production") {
-      base_URL = `${req.protocol}://${req.get("host")}`;
-    }
-    if (req.file) {
-      // 1. Wait for the upload
-      const result = await uploadToCloudinary(req.file.buffer, 'avatars');
-      
-      // 2. Grab JUST the secure_url string
-      // Your log shows 'result' is the whole object, Mongoose wants just the link
-      avatar = result.secure_url; 
-      
-      let newUserData = { ...newUserData, avatar };
+
+    // ================== BASIC VALIDATION ==================
+    if (!name || !email || !password) {
+      return res.status(statusCode.bad_Request).json({
+        message: "Name, Email and Password are required",
+      });
     }
 
+    // ================== USER EXISTS CHECK ==================
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(statusCode.bad_Request).json({
+        message: "User already exists",
+      });
+    }
+
+    // ================== PASSWORD HASH ==================
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // ================== BUILD USER OBJECT ==================
+    const newUserData = {
+      name,
+      email,
+      password: hashedPassword,
+      contact,
+      addresses,
+    };
+
+    // ================== AVATAR UPLOAD ==================
+    if (req.file) {
+      const result = await uploadToCloudinary(req.file.buffer, "avatars");
+      newUserData.avatar = result.secure_url;
+    }
+
+    // ================== OTP GENERATION ==================
+    const otp = Math.floor(100000 + Math.random() * 900000);
+
+    // ================== JWT ACTIVATION TOKEN ==================
+    const activation_Key = jwt.sign(
+      { user: newUserData, otp },
+      process.env.ACTIVATION_KEY,
+      { expiresIn: "5m" }
+    );
+
+    // ================== COOKIE OPTIONS ==================
     const options = {
       expires: new Date(
-        Date.now() + process.env.COOKIE_EXP_TIME * 24 * 60 * 60 * 1000,
+        Date.now() +
+          process.env.COOKIE_EXP_TIME * 24 * 60 * 60 * 1000
       ),
       httpOnly: true,
       secure: true,
       sameSite: "none",
     };
 
-    //Is User already in DataBase ???
-    let user = await User.findOne({ email });
+    // ================== SEND EMAIL ==================
+    const message = `Welcome ${name}!\n\nYour OTP is: ${otp}\n\nThis OTP is valid for 5 minutes.`;
+    await sendMail(email, "Account Verification OTP", message);
 
-    if (user) {
-      return res.status(statusCode.bad_Request).json({
-        message: "User Already Exists",
-      });
-    }
-    //Raw password to Hashed Password
-    const hashpassword = await bcrypt.hash(password, 10);
-
-    //Generate OTP
-    const otp = Math.floor(Math.random() * 1000000);
-
-    //Create New user
-    user = { name, email, hashpassword, contact, avatar, addresses };
-
-    //JWT Authentication
-    const activation_Key = jwt.sign({ user, otp }, aCTIVATION_KEY, {
-      expiresIn: "5m",
-    });
-
-    //Send Email To New user
-    const message = `Please verify your account using otp your OTP is ${otp} `;
-
-    await sendMail(email, "Welcome to sample-1", message);
-
+    // ================== RESPONSE ==================
     return res
       .status(statusCode.ok)
       .cookie("activation_Key", activation_Key, options)
       .json({
-        message: `OTP send to your Gmail...${otp}`,
+        message: "OTP sent to your Gmail",
         activation_Key,
       });
+
   } catch (err) {
+    console.error("Register Error:", err);
     return res.status(statusCode.server_Error).json({
-      message: err.message,
-      err,
+      message: err.message || "Internal Server Error",
     });
   }
 };
@@ -479,6 +488,7 @@ export const getSpecificUser = async (req, res) => {
     user,
   });
 };
+
 
 
 
