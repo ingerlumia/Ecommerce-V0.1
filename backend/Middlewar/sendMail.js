@@ -9,9 +9,8 @@ const sendMail = async (email, subject, text) => {
         user: process.env.GUSER,
         pass: process.env.GPASS,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
+      connectionTimeout: 5000, // 5 seconds max - don't let it hang the app
+    greetingTimeout: 5000,
     });
     await transport.sendMail({
       from: process.env.GUSER,
@@ -25,5 +24,6 @@ const sendMail = async (email, subject, text) => {
 };
 
 export default sendMail;
+
 
 
