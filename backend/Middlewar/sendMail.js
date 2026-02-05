@@ -13,7 +13,7 @@ const sendMail = async (email, subject, text) => {
     greetingTimeout: 5000,
     });
     await transport.sendMail({
-      from: 'parwinparwin2500@gmail.com',
+      from: "Cypers <parwinparwin2500@gmail.com>",
       to: email,
       subject,
       text,
@@ -24,6 +24,7 @@ const sendMail = async (email, subject, text) => {
 };
 
 export default sendMail;
+
 
 
 
