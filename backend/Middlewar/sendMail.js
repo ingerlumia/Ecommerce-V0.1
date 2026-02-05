@@ -2,7 +2,7 @@ import { createTransport } from "nodemailer";
 const sendMail = async (email, subject, text) => {
   try {
     const transport = createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp-relay.brevo.com",
       port: 587,
       secure: false,
       auth: {
@@ -24,6 +24,7 @@ const sendMail = async (email, subject, text) => {
 };
 
 export default sendMail;
+
 
 
 
