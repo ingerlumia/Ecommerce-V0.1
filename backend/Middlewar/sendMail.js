@@ -3,7 +3,7 @@ const sendMail = async (email, subject, text) => {
   try {
     const transport = createTransport({
       host: "smtp-relay.brevo.com",
-      port: 587,
+      port: 465,
       secure: false,
       auth: {
         user: "apikey",
@@ -24,6 +24,7 @@ const sendMail = async (email, subject, text) => {
 };
 
 export default sendMail;
+
 
 
 
