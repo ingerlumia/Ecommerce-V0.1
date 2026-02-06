@@ -12,7 +12,7 @@ const sendMail = async (email, subject, text) => {
       },
       {
         headers: {
-          "api-key": "xsmtpsib-6c89bf6ce45b98f71d8c3d1f862d3b0863f0153df6a9133f701471613e4556b6-pWZNqJmX0HRoQxuh",
+          "api-key": process.env.GPASS,
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
@@ -27,4 +27,5 @@ const sendMail = async (email, subject, text) => {
 };
 
 export default sendMail;
+
 
