@@ -1,35 +1,29 @@
-import { createTransport } from "nodemailer";
+import axios from "axios";
+
 const sendMail = async (email, subject, text) => {
   try {
-    const transport = createTransport({
-      host: "smtp-relay.brevo.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: "apikey",
-        pass: process.env.GPASS,
+    const response = await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: { name: "Cypers", email: "parwinparwin2500@gmail.com" },
+        to: [{ email: email }],
+        subject: subject,
+        textContent: text,
       },
-      connectionTimeout: 5000, // 5 seconds max - don't let it hang the app
-    greetingTimeout: 5000,
-    });
-    await transport.sendMail({
-      from: "Cypers <parwinparwin2500@gmail.com>",
-      to: email,
-      subject,
-      text,
-    });
+      {
+        headers: {
+          "api-key": process.env.GPASS, // Use your Brevo API Key here
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+      }
+    );
+
+    console.log("Email sent successfully via API:", response.data);
   } catch (err) {
-    console.log(err);
+    // Log the specific error from Brevo's API
+    console.error("Mail Error:", err.response ? err.response.data : err.message);
   }
 };
 
 export default sendMail;
-
-
-
-
-
-
-
-
-
