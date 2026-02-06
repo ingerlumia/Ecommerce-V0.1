@@ -121,7 +121,7 @@ export const verifyUser = async (req, res) => {
     await User.create({
       name: verify.user.name,
       email: verify.user.email,
-      password: verify.user.hashpassword,
+      password: verify.user.password,
       contact: verify.user.contact,
       addresses: JSON.parse(verify.user.addresses),
       avatar: verify.user.avatar,
@@ -488,6 +488,7 @@ export const getSpecificUser = async (req, res) => {
     user,
   });
 };
+
 
 
 
