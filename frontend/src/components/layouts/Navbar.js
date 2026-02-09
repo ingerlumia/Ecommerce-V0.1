@@ -84,7 +84,7 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* RIGHT : SEARCH/WISHLIST/CART - ADD IF NEEDED */}
+     
       <div className="col-4 d-flex justify-content-end align-items-center">
         <Link to="/search" className="btn btn-sm btn-outline-warning me-2">
           <i className="fas fa-search"></i>

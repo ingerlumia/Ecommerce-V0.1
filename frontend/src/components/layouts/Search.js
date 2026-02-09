@@ -20,7 +20,6 @@ export default function Search() {
                 className="form-control border-0 px-4 py-2"
                 placeholder="Search products..."
                 onChange={(e) => setKeyword(e.target.value)}
-                onBlur={searchHandler}
                 style={{ fontSize: "0.95rem" }}
             />
 

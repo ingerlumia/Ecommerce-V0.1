@@ -15,12 +15,14 @@ const featuresSlice = createSlice({
         getTopSellingProductsRequest(state, action) {
             console.log('get Top Selling products Request')
             return {
+                ...state,
                 loading: true
             }
         },
         getTopSellingProductsSuccess(state, action) {
             console.log('get Top Selling products Success')
             return {
+                ...state,
                 loading: false,
                 topSelling: action.payload.topSelling
             }
@@ -28,6 +30,7 @@ const featuresSlice = createSlice({
         getTopSellingProductsFail(state, action) {
             console.log('get Top Selling products Fail')
             return {
+                ...state,
                 loading: false,
                 error: action.payload
             }
@@ -35,12 +38,14 @@ const featuresSlice = createSlice({
         monthlyProductsRequest(state, action) {
             console.log('monthly products Request')
             return {
+                ...state,
                 loading: true
             }
         },
         monthlyProductsSuccess(state, action) {
             console.log('monthly products Success')
             return {
+                ...state,
                 loading: false,
                 productsofmonth: action.payload.products
             }
@@ -48,6 +53,7 @@ const featuresSlice = createSlice({
         monthlyProductsFail(state, action) {
             console.log('monthly products Fail')
             return {
+                ...state,
                 loading: false,
                 error: action.payload
             }
@@ -55,12 +61,14 @@ const featuresSlice = createSlice({
         trendingProductsRequest(state, action) {
             console.log('trending products Request')
             return {
+                ...state,
                 loading: true
             }
         },
         trendingProductsSuccess(state, action) {
             console.log('trending products Success')
             return {
+                ...state,
                 loading: false,
                 trending: action.payload.trending
             }
@@ -68,6 +76,7 @@ const featuresSlice = createSlice({
         trendingProductsFail(state, action) {
             console.log('trending products Fail')
             return {
+                ...state,
                 loading: false,
                 error: action.payload
             }
@@ -76,12 +85,14 @@ const featuresSlice = createSlice({
         getCatagoryRequest(state, action) {
             console.log('get Catagory Request')
             return {
+                ...state,
                 loading: true
             }
         },
         getCatagorySuccess(state, action) {
             console.log('get Catagory Success')
             return {
+                ...state,
                 loading: false,
                 catagory: action.payload.catagory
             }
@@ -89,6 +100,7 @@ const featuresSlice = createSlice({
         getCatagoryFail(state, action) {
             console.log('get Catagory Fail')
             return {
+                ...state,
                 loading: false,
                 error: action.payload
             }
@@ -96,12 +108,14 @@ const featuresSlice = createSlice({
         newCatagoryRequest(state, action) {
             console.log('New Catagory Request')
             return {
+                ...state,
                 loading: true
             }
         },
         newCatagorySuccess(state, action) {
             console.log('New Catagory Success')
             return {
+                ...state,
                 loading: false,
                 isCatagoryCreated: true,
                 catagory: action.payload.catagory
@@ -110,6 +124,7 @@ const featuresSlice = createSlice({
         newCatagoryFail(state, action) {
             console.log('New Catagory Fail')
             return {
+                ...state,
                 loading: false,
                 isCatagoryCreated: false,
                 error: action.payload
@@ -118,6 +133,7 @@ const featuresSlice = createSlice({
         clearisCatagoryCreated(state, action) {
             console.log('clear Created catagory');
             return {
+                ...state,
                 ...state,
                 isCatagoryCreated: false,
             }

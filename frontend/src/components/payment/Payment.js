@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 import { orderCompleted } from "../../slices/cartSlice";
 import { createOrder } from "../../actions/orderAction";
 import { clearOrderError } from "../../slices/orderSlice";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 export default function Payment() {
   const stripe = useStripe();
@@ -25,7 +26,9 @@ export default function Payment() {
   const { shippingInfo, items: cartItems } = useSelector(
     (state) => state.cartState,
   );
-  const { error: orderError } = useSelector((state) => state.orderState);
+  const { error: orderError, loading } = useSelector(
+    (state) => state.orderState,
+  );
 
   const paymentData = {
     amount: Math.floor(orderInfo?.totalPrice * 100),
@@ -116,52 +119,189 @@ export default function Payment() {
     }
   };
 
+  const styles = `
+  .checkout-container {
+    background: #f8f9fa;
+    min-height: 70vh;
+    padding: 50px 0;
+  }
+
+  .payment-card {
+    max-width: 450px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .payment-header {
+    background: linear-gradient(135deg, #FF7A00 0%, #FF9D45 100%);
+    padding: 30px;
+    color: white;
+  }
+
+  .price-badge {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-top: 5px;
+  }
+
+  /* Stripe Input Styling Wrapper */
+  .stripe-element-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+  }
+
+  .stripe-element-container:focus-within {
+    border-color: #FF7A00;
+    box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.1);
+  }
+
+  /* Pay Button */
+  .pay-button {
+    background: #FF7A00 !important;
+    border: none !important;
+    padding: 14px;
+    font-weight: 700;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pay-button:hover:not(:disabled) {
+    background: #E66E00 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 122, 0, 0.3);
+  }
+
+  .pay-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .secure-text {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+  }
+`;
+
   return (
     <Fragment>
-      <div className="container my-4">
-        <div className="card p-4 mb-4 shadow-sm">
-          <div className="checkout-summary mb-3">
-            <h2 className="mb-2">Stripe Payment</h2>
-            <div className="h4">${orderInfo && orderInfo.totalPrice}</div>
-          </div>
-
-          <div className="checkout-form">
-            <h3 className="mb-3">Pay with card</h3>
-            <form onSubmit={submitHandler}>
-              <div className="mb-3">
-                <label className="form-label">Card information</label>
-                <CardNumberElement
-                  className="form-control mb-2"
-                  type="text"
-                  placeholder="1234 1234 1234 1234"
-                  required
-                />
-                <div className="d-flex gap-2">
-                  <CardExpiryElement
-                    className="form-control"
-                    type="text"
-                    placeholder="MM / YY"
-                    required
-                  />
-                  <CardCvcElement
-                    className="form-control"
-                    type="text"
-                    placeholder="CVC"
-                    required
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                id="pay-btn"
-                className="btn btn-primary w-100"
+      <style>{styles}</style>
+      <div className="checkout-container">
+        <Container>
+          <Card className="payment-card">
+            <div className="payment-header text-center">
+              <h5
+                className="text-uppercase mb-1"
+                style={{
+                  fontSize: "0.75rem",
+                  letterSpacing: "2px",
+                  opacity: 0.9,
+                }}
               >
-                Pay ${orderInfo && orderInfo.totalPrice}
-              </button>
-            </form>
+                Amount to Pay
+              </h5>
+              <div className="price-badge">
+                ₹{orderInfo && orderInfo.totalPrice}
+              </div>
+            </div>
+
+            <Card.Body className="p-4 p-md-5">
+              <div className="checkout-form">
+                <div className="d-flex align-items-center mb-4">
+                  <h6 className="mb-0 fw-bold">Payment Details</h6>
+                  <div className="ms-auto">
+                    <i className="fab fa-cc-visa text-muted me-2 fs-4"></i>
+                    <i className="fab fa-cc-mastercard text-muted fs-4"></i>
+                  </div>
+                </div>
+
+                <form onSubmit={submitHandler}>
+                  <div className="mb-4">
+                    <label className="form-label">Card Number</label>
+                    <div className="stripe-element-container">
+                      <CardNumberElement
+                        options={{
+                          style: {
+                            base: {
+                              fontSize: "16px",
+                              color: "#333",
+                              "::placeholder": { color: "#aab7c4" },
+                            },
+                          },
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <Row className="g-3 mb-4">
+                    <Col xs={6}>
+                      <label className="form-label">Expiry Date</label>
+                      <div className="stripe-element-container">
+                        <CardExpiryElement
+                          options={{ style: { base: { fontSize: "16px" } } }}
+                        />
+                      </div>
+                    </Col>
+                    <Col xs={6}>
+                      <label className="form-label">CVC / CVV</label>
+                      <div className="stripe-element-container">
+                        <CardCvcElement
+                          options={{ style: { base: { fontSize: "16px" } } }}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+
+                  <Button
+                    type="submit"
+                    id="pay-btn"
+                    className="pay-button w-100"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <span>
+                        <i className="fa fa-spinner fa-spin me-2"></i>
+                        Processing...
+                      </span>
+                    ) : (
+                      `Securely Pay ₹${orderInfo && orderInfo.totalPrice}`
+                    )}
+                  </Button>
+
+                  <div className="secure-text">
+                    <i className="fa fa-lock text-success"></i>
+                    <span>Verified 256-bit SSL Encrypted Payment</span>
+                  </div>
+                </form>
+              </div>
+            </Card.Body>
+          </Card>
+
+          <div className="text-center mt-4 text-muted small">
+            <p>By clicking pay, you agree to our Terms of Service</p>
           </div>
-        </div>
+        </Container>
       </div>
     </Fragment>
   );

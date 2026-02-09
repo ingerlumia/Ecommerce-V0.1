@@ -152,7 +152,7 @@ export default function ViewProducts() {
                                         <Card className="h-100 shadow-sm border-0">
                                             <Card.Img
                                                 variant="top"
-                                                src={`http://localhost:2005${p.images[0].image}`}
+                                                src={`${p.images[0].image}`}
                                                 style={{ height: 160, objectFit: "cover" }}
                                             />
                                             <Card.Body>

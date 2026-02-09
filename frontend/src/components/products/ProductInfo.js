@@ -89,165 +89,179 @@ const reviewHandler = () =>{
 
 
 
-    return (
-    <Fragment>
-        {loading ? (
-            <Loader />
-        ) : (
-            <Fragment>
-                <MetaData title={product.name} />
+const styles = `
+  .product-details-page { padding: 40px 0; }
+  .carousel-wrapper { background: #f8f9fa; border-radius: 15px; padding: 20px; border: 1px solid #eee; }
+  .price-text { color: #FF7A00; font-weight: 800; }
+  .qty-input-styled { width: 80px; text-align: center; border: 1px solid #ddd; border-radius: 4px; font-weight: bold; }
+  .action-btn-orange { background: #FF7A00; color: white; border: none; font-weight: bold; transition: 0.3s; }
+  .action-btn-orange:hover { background: #E66E00; color: white; }
+  .description-box { background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #f0f0f0; }
+`;
 
-                <div className="container py-4">
+return (
+  <Fragment>
+    <style>{styles}</style>
+    {loading ? (
+      <Loader />
+    ) : (
+      <Fragment>
+        <MetaData title={product.name} />
 
-                    {/* PRODUCT TITLE + WISHLIST */}
-                    <div className="d-flex justify-content-between align-items-center mb-3">
-                        <h2 className="fw-bold">{product.name}</h2>
-                        <button className="btn btn-outline-danger" onClick={wishlist}>
-                            Wishlist
-                        </button>
-                    </div>
+        <div className="container py-4 product-details-page">
 
-                    <div className="row">
+          {/* PRODUCT TITLE + WISHLIST */}
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h2 className="fw-bold">{product.name}</h2>
+            <button className="btn btn-outline-danger" onClick={wishlist}>
+              Wishlist
+            </button>
+          </div>
 
-                        {/* LEFT: IMAGE CAROUSEL */}
-                        <div className="col-12 col-md-6 mb-3">
-                            <Carousel pause="hover" className="shadow-sm rounded">
-                                {product.images &&
-                                    product.images.map((image) => (
-                                        <Carousel.Item key={image._id} interval={1200}>
-                                            <img
-                                                className="d-block w-100"
-                                                src={image.image}
-                                                alt="Product Slide"
-                                                style={{ height: "350px", objectFit: "contain" }}
-                                            />
-                                        </Carousel.Item>
-                                    ))}
-                            </Carousel>
-                        </div>
+          <div className="row">
 
-                        {/* RIGHT: DETAILS */}
-                        <div className="col-12 col-md-6">
+            {/* LEFT: IMAGE CAROUSEL */}
+            <div className="col-12 col-md-6 mb-3">
+              <div className="carousel-wrapper">
+                <Carousel pause="hover" className="shadow-sm rounded">
+                  {product.images &&
+                    product.images.map((image) => (
+                      <Carousel.Item key={image._id} interval={1200}>
+                        <img
+                          className="d-block w-100"
+                          src={image.image}
+                          alt="Product Slide"
+                          style={{ height: "350px", objectFit: "contain" }}
+                        />
+                      </Carousel.Item>
+                    ))}
+                </Carousel>
+              </div>
+            </div>
 
-                            {/* STOCK */}
-                            <h5 className={product.stock > 0 ? "text-success" : "text-danger"}>
-                                {product.stock > 0 ? "In Stock" : "Out of Stock"}
-                            </h5>
+            {/* RIGHT: DETAILS */}
+            <div className="col-12 col-md-6">
 
-                            {/* PRICE */}
-                            <div className="mt-2 mb-3">
-                                <h4 className="text-primary">Price: ₹{product?.pricing?.basePrice}</h4>
-                                <h6 className="text-muted">
-                                    MRP: <span className="text-decoration-line-through">₹{product?.pricing?.mrp}</span>
-                                </h6>
-                            </div>
+              {/* STOCK */}
+              <h5 className={product.stock > 0 ? "text-success" : "text-danger"}>
+                {product.stock > 0 ? "● In Stock" : "● Out of Stock"}
+              </h5>
 
-                            {/* QTY BUTTONS */}
-                            <div className="d-flex align-items-center mb-3">
-                                <button className="btn btn-primary me-2" onClick={incQty}>
-                                    +
-                                </button>
-                                <button className="btn btn-danger me-2" onClick={descQty}>
-                                    -
-                                </button>
-                                <input
-                                    type="number"
-                                    readOnly
-                                    value={qty}
-                                    className="form-control text-center"
-                                    style={{ width: "80px" }}
-                                />
-                            </div>
+              {/* PRICE */}
+              <div className="mt-2 mb-3">
+                <h4 className="price-text">Price: ₹{product?.pricing?.basePrice}</h4>
+                <h6 className="text-muted">
+                  MRP: <span className="text-decoration-line-through">₹{product?.pricing?.mrp}</span>
+                </h6>
+              </div>
 
-                            {/* CART BUTTON */}
-                            <button
-                                className="btn btn-success w-100 mb-3"
-                                type="button"
-                                onClick={() => dispatch(addCartItem(product._id, qty))}
-                                disabled={product.stock === 0}
-                            >
-                                Add To Cart
-                            </button>
+              {/* QTY BUTTONS */}
+              <div className="d-flex align-items-center mb-3">
+                <button className="btn btn-dark me-2" onClick={incQty}>
+                  +
+                </button>
+                <button className="btn btn-dark me-2" onClick={descQty}>
+                  -
+                </button>
+                <input
+                  type="number"
+                  readOnly
+                  value={qty}
+                  className="qty-input-styled form-control"
+                />
+              </div>
 
-                            {/* BUY NOW */}
-                            <button
-                                className="btn btn-warning w-100 mb-3"
-                                disabled={product.stock === 0}
-                            >
-                                BUY NOW
-                            </button>
+              {/* CART BUTTON */}
+              <button
+                className="btn action-btn-orange w-100 mb-3 p-2"
+                type="button"
+                onClick={() => dispatch(addCartItem(product._id, qty))}
+                disabled={product.stock === 0}
+              >
+                Add To Cart
+              </button>
 
-                            {/* DESCRIPTION */}
-                            <div className="mt-3">
-                                <h5>Description</h5>
-                                <p className="text-muted">{product.description}</p>
-                            </div>
+              {/* BUY NOW */}
+              <button
+                className="btn btn-warning w-100 mb-3 p-2 fw-bold"
+                disabled={product.stock === 0}
+              >
+                BUY NOW
+              </button>
 
-                            {/* REVIEW BUTTON */}
-                            {user ? (
-                                <Button variant="primary" onClick={handleShow} className="mt-3">
-                                    Review Product
-                                </Button>
-                            ) : (
-                                <p className="alert alert-danger mt-3">Login to review</p>
-                            )}
-                        </div>
-                    </div>
+              {/* DESCRIPTION */}
+              <div className="mt-3 description-box">
+                <h5 className="fw-bold">Description</h5>
+                <p className="text-muted">{product.description}</p>
+              </div>
 
-                    {/* REVIEW MODAL */}
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Write a Review</Modal.Title>
-                        </Modal.Header>
+              {/* REVIEW BUTTON */}
+              {user ? (
+                <Button variant="outline-dark" onClick={handleShow} className="mt-3 fw-bold">
+                  Review Product
+                </Button>
+              ) : (
+                <p className="alert alert-danger mt-3">Login to review</p>
+              )}
+            </div>
+          </div>
 
-                        <Modal.Body>
-                            {/* STARS */}
-                            <div className="d-flex mb-3">
-                                {[1, 2, 3, 4, 5].map((star, ixd) => (
-                                    <i
-                                        key={ixd}
-                                        className={`fa fa-star fs-4 me-2 ${
-                                            star <= rating ? "text-warning" : "text-secondary"
-                                        }`}
-                                        onClick={() => setRating(star)}
-                                        style={{ cursor: "pointer" }}
-                                        onMouseOver={(e) => (e.target.className = "fa fa-star fs-4 me-2 text-info")}
-                                        onMouseOut={(e) =>
-                                            (e.target.className = `fa fa-star fs-4 me-2 ${
-                                                star <= rating ? "text-warning" : "text-secondary"
-                                            }`)
-                                        }
-                                    ></i>
-                                ))}
-                            </div>
+          {/* REVIEW MODAL */}
+          <Modal show={show} onHide={handleClose} centered>
+            <Modal.Header closeButton>
+              <Modal.Title className="fw-bold">Write a Review</Modal.Title>
+            </Modal.Header>
 
-                            {/* COMMENT */}
-                            <textarea
-                                className="form-control"
-                                rows="4"
-                                placeholder="Write your review..."
-                                onChange={(e) => setComment(e.target.value)}
-                            ></textarea>
-                        </Modal.Body>
+            <Modal.Body>
+              {/* STARS */}
+              <div className="d-flex mb-3">
+                {[1, 2, 3, 4, 5].map((star, ixd) => (
+                  <i
+                    key={ixd}
+                    className={`fa fa-star fs-4 me-2 ${
+                      star <= rating ? "text-warning" : "text-secondary"
+                    }`}
+                    onClick={() => setRating(star)}
+                    style={{ cursor: "pointer" }}
+                    onMouseOver={(e) => (e.target.className = "fa fa-star fs-4 me-2 text-info")}
+                    onMouseOut={(e) =>
+                      (e.target.className = `fa fa-star fs-4 me-2 ${
+                        star <= rating ? "text-warning" : "text-secondary"
+                      }`)
+                    }
+                  ></i>
+                ))}
+              </div>
 
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Button variant="primary" disabled={loading} onClick={reviewHandler}>
-                                Submit Review
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+              {/* COMMENT */}
+              <textarea
+                className="form-control"
+                rows="4"
+                placeholder="Write your review..."
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+            </Modal.Body>
 
-                    {/* REVIEWS */}
-                    {product.reviews && product.reviews.length > 0 && (
-                        <ProductReview reviews={product.reviews} />
-                    )}
-                </div>
-            </Fragment>
-        )}
-    </Fragment>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button className="action-btn-orange" disabled={loading} onClick={reviewHandler}>
+                Submit Review
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
+          {/* REVIEWS */}
+          <div className="mt-5">
+            {product.reviews && product.reviews.length > 0 && (
+                <ProductReview reviews={product.reviews} />
+            )}
+          </div>
+        </div>
+      </Fragment>
+    )}
+  </Fragment>
 );
 
 }
