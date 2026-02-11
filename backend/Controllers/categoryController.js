@@ -1,10 +1,23 @@
 import { Catagory } from "../Model/categoryModel.js"
 import { statusCode } from "../Middlewar/statusCode.js";
+import slugify from "slugify";
+const generateUniqueSlug = async (name) => {
+  let baseSlug = slugify(name, { lower: true, strict: true });
+  let slug = baseSlug;
+  let count = 1;
+
+  while (await Catagory.findOne({ "seo.slug": slug })) {
+    slug = `${baseSlug}-${count}`;
+    count++;
+  }
+
+  return slug;
+};
 
 export const createCatagory = async (req, res) => {
   try {
-    // Role checking
-    if (req.user.role !== "admin" && req.user.role !== "manager") {
+    // Role authorization
+    if (!req.user || !["admin", "manager"].includes(req.user.role)) {
       return res.status(403).json({
         message: "Unauthorized User",
       });
@@ -13,7 +26,8 @@ export const createCatagory = async (req, res) => {
     const body = req.body;
 
     if (Array.isArray(body)) {
-      // validate all categories
+      const formattedCategories = [];
+
       for (const cat of body) {
         if (!cat.name) {
           return res.status(400).json({
@@ -21,15 +35,28 @@ export const createCatagory = async (req, res) => {
           });
         }
 
-        const exists = await Catagory.findOne({ name: cat.name });
-        if (exists) {
+        const existing = await Catagory.findOne({ name: cat.name });
+        if (existing) {
           return res.status(400).json({
             message: `Category '${cat.name}' already exists`,
           });
         }
+
+        const slug = await generateUniqueSlug(cat.name);
+
+        formattedCategories.push({
+          name: cat.name,
+          attributes: cat.attributes || [],
+          seo: {
+            slug,
+            metaTitle: cat.name,
+            metaDescription: cat.seo?.metaDescription || "",
+            keywords: cat.seo?.keywords || [],
+          },
+        });
       }
 
-      const categories = await Catagory.insertMany(body);
+      const categories = await Catagory.insertMany(formattedCategories);
 
       return res.status(201).json({
         message: "Categories added successfully",
@@ -37,7 +64,8 @@ export const createCatagory = async (req, res) => {
       });
     }
 
-    const { name, attributes } = body;
+
+    const { name, attributes = [] } = body;
 
     if (!name) {
       return res.status(400).json({
@@ -52,7 +80,16 @@ export const createCatagory = async (req, res) => {
       });
     }
 
-    const category = await Catagory.create({ name, attributes });
+    const slug = await generateUniqueSlug(name);
+
+    const category = await Catagory.create({
+      name,
+      attributes,
+      seo: {
+        slug,
+        metaTitle: name,
+      },
+    });
 
     return res.status(201).json({
       message: "Category added successfully",
