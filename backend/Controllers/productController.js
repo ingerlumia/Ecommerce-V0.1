@@ -40,11 +40,6 @@ export const createProduct = async (req, res) => {
       managerEmail,
     } = req.body;
 
-    if (!req.images || req.images.length === 0) {
-  return res.status(400).json({
-    message: "Please upload at least one image",
-  });
-}
 
     const results = await Promise.all(
       req.files.map((file) => uploadToCloudinary(file.buffer, "products")),
@@ -922,6 +917,7 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
 
