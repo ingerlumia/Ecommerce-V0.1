@@ -40,7 +40,7 @@ export const createProduct = async (req, res) => {
       managerEmail,
     } = req.body;
 
-    if (!req.files || req.files.length === 0) {
+    if (!req.images || req.images.length === 0) {
   return res.status(400).json({
     message: "Please upload at least one image",
   });
@@ -922,6 +922,7 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
 
