@@ -42,7 +42,7 @@ export const createProduct = async (req, res) => {
 
     console.log(req.body)
     const results = await Promise.all(
-      req.body.map((file) => uploadToCloudinary(file.path, "products")),
+      req.files.map((file) => uploadToCloudinary(file.path, "products")),
     );
 
     const images = results.map((r) => ({
@@ -917,6 +917,7 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
 
