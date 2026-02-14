@@ -40,7 +40,8 @@ export const createProduct = async (req, res) => {
       managerEmail,
     } = req.body;
 
-
+console.log(req.files)
+    console.log(req.body)
     const results = await Promise.all(
       req.files.map((file) => uploadToCloudinary(file.buffer, "products")),
     );
@@ -917,6 +918,7 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
 
