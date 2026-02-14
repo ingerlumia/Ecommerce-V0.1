@@ -9,7 +9,7 @@ const storage = multer.memoryStorage();
 export const uploadFie = multer({ 
     storage,
     limits: { fileSize: 10 * 1024 * 1024 } // Optional: 10MB limit
-}).array('image', 6);
+}).array('images', 6);
 
 export const upload = multer({ 
     storage 
@@ -22,3 +22,4 @@ export const singleFileUpload = multer({
 // For routes that don't expect files but use multipart/form-data
 
 export const uploadNone = multer({ storage }).none();
+
