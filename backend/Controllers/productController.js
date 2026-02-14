@@ -48,7 +48,7 @@ console.log(req.files)
     );
 
     const images = results.map((r) => ({
-      url: r.secure_url,
+      image: r.secure_url,
       public_id: r.public_id,
     }));
 
@@ -919,6 +919,7 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
 
