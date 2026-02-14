@@ -69,7 +69,7 @@ export default function NewProduct() {
         formData.append('stock', stock);
         formData.append('managerEmail',user.manager);
         images.forEach(image => {
-            formData.append('images', image)
+            formData.append('images', image.name)
         });
         dispatch(createNewProduct(formData));
 
@@ -261,4 +261,5 @@ export default function NewProduct() {
     );
 
 }
+
 
