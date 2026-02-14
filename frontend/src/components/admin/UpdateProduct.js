@@ -80,7 +80,7 @@ export default function UpdateProduct() {
     formData.append("attributes", JSON.stringify(selectedAttributes || {}));
 
     images.forEach((file) => {
-    formData.append("images", file);
+    formData.append("images", file.name);
   });
     formData.append("clearImages", clearImages);
     dispatch(updateProduct(formData, productId));
@@ -311,4 +311,5 @@ export default function UpdateProduct() {
     </div>
   );
 }
+
 
