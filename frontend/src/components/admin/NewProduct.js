@@ -38,6 +38,7 @@ export default function NewProduct() {
                 if (reader.readyState == 2) {
                     setImagePreview(oldArray => [...oldArray, reader.result]);
                     setImages(oldArray => [...oldArray, file]);
+                    console.log('file: ',file)
                 };
             };
 
@@ -69,8 +70,10 @@ export default function NewProduct() {
         formData.append('stock', stock);
         formData.append('managerEmail',user.manager);
         images.forEach(image => {
-            formData.append('images', image.name)
+            formData.append('images', image)
         });
+        console.log('iamges',images)
+            console.log('formdat',formData)
         dispatch(createNewProduct(formData));
 
     }
@@ -135,7 +138,7 @@ export default function NewProduct() {
                                 <input
                                     type="number"
                                     className="form-control"
-                                    placeholder="Enter price"
+                                    placeholder="Enter MRP"
                                     onChange={e => setMrp(e.target.value)}
                                     value={mrp}
                                 />
@@ -261,5 +264,4 @@ export default function NewProduct() {
     );
 
 }
-
 
