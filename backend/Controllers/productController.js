@@ -43,6 +43,7 @@ export const createProduct = async (req, res) => {
     return res.status(400).json({ error: "Invalid input" });
 }
 console.log(req.files)
+    console.log(req.body)
     const results = await Promise.all(
       req.files.map((file) => uploadToCloudinary(file.buffer, "products")),
     );
@@ -919,6 +920,7 @@ export const getDashboardSummary = async (req, res) => {
     });
   }
 };
+
 
 
 
